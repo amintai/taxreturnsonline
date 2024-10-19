@@ -18,7 +18,7 @@ function Features() {
         <FeatureItem
           Icon={CursorClickIcon}
           title="Basic ITR Filing"
-          iconBgColor="#02897A"
+          iconBgColor="#8E44AD"
           description="Hassle-free filing for individuals with straightforward income sources."
         />
         <FeatureItem
