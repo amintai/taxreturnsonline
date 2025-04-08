@@ -5,30 +5,33 @@ import { MenuIcon } from "@heroicons/react/solid";
 function Header() {
   return (
     <header className="container flex justify-between shadow-md md:shadow-none h-20 ">
-      <img
-        className="md:hidden lg:inline-flex"
-        src="images/logo-full.svg"
-        alt=""
-        width="180"
-      />
-      <img
-        className="hidden md:inline-block lg:hidden"
-        src="images/logo.svg"
-        alt=""
-        width="45"
-      />
+      <a href="/">
+        <img
+          className="md:hidden lg:inline-flex"
+          src="images/logo-full.svg"
+          alt=""
+          width="180"
+        />
+      </a>
+      <a href="/">
+        <img
+          className="hidden md:inline-block lg:hidden"
+          src="images/logo.svg"
+          alt=""
+          width="45"
+        />
+      </a>
       <div className="flex items-center">
         <MenuIcon className="h-10 md:hidden" />
         <div className="hidden md:flex items-center space-x-3 lg:space-x-8">
           {/* <div className="hidden max-w-xl md:grid gap-4 grid-cols-4 text-right"> */}
-          <p className="nav-item">Product</p>
-          <p className="nav-item">Customers</p>
-          <p className="nav-item">Pricing</p>
-          <p className="nav-item">Resouces</p>
+          <a href="/our-services" className="nav-item">Our Sevicies</a>
+          <a className="nav-item">Customers</a>
+          <a className="nav-item">Pricing</a>
+          <a className="nav-item">Resouces</a>
           {/* </div> */}
 
-          <button className="secondary-button">Sign in</button>
-          <button className="primary-button">Sign up</button>
+          <button className="primary-button">+91 8866397377</button>
         </div>
       </div>
     </header>
