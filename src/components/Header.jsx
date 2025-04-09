@@ -16,11 +16,13 @@ export default function Header() {
     { label: 'Resources', path: '/our-resources' },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => {
+    return location.pathname.includes(path)
+  }
 
   return (
     <header className="container mx-auto px-4 flex justify-between items-center sticky top-0 z-50 bg-white shadow-md h-20">
-      
+
       {/* Logo */}
       <img
         className="md:hidden lg:inline-flex cursor-pointer"

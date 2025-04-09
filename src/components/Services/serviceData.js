@@ -33,5 +33,12 @@ export const serviceData = [
         description: "Outsource your GST compliance to Online Legal India. India's fastest growing online corporate services.",
         imageUrl: "/images/services/gst-registration.jpeg",
         content: "Let our experts manage your GST compliance needs. We offer registration, return filing, reconciliation, and advisory services to ensure seamless tax compliance."
+    },
+    {
+        id: "iec-registration",
+        title: "IEC Registration",
+        description: "Get your Import Export Code (IEC) online hassle-free with expert assistance. Start your global trade journey today.",
+        imageUrl: "/images/services/iec-registration.jpeg",
+        content: "Our experts help you obtain your Import Export Code (IEC) with ease. Required for any business involved in importing or exporting goods and services, IEC is a key business identification number issued by the DGFT. We handle the entire application process to ensure smooth registration."
     }
 ]

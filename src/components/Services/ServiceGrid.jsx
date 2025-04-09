@@ -37,7 +37,7 @@ const ServiceGrid = () => {
                     </div>
                 </div>
 
-                <div className="mt-16 flex justify-center items-center gap-8 flex-wrap">
+                {/* <div className="mt-16 flex justify-center items-center gap-8 flex-wrap">
                     <img src="/trustpilot.png" alt="Trustpilot" className="h-16" />
                     <div className="text-gray-600 text-lg italic">
                         "We were fully equipped with technology and knew how to guide us and get our work done with innocent steps."
@@ -45,7 +45,7 @@ const ServiceGrid = () => {
                     <div className="text-gray-600 text-lg italic">
                         "Thanks for addressing client grievances in time and giving you counsel with righteous way."
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )

@@ -1,13 +1,11 @@
 import React from 'react'
 import HeroSection from './HeroSection';
 import CompanyForm from './CompanyForm';
-import Header from '../../../components/Header';
 
 const CompanyRegistration = () => {
 
     return (
         <>
-            <Header />
             <div className="min-h-screen py-6 sm:py-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Back Link */}

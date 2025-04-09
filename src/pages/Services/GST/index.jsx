@@ -1,12 +1,10 @@
 import React from 'react'
 import HeroComponent from './HeroComponent'
 import ServiceSection from './ServiceSection'
-import Header from '../../../components/Header'
 
 const GstRegistration = () => {
     return (
         <div>
-            <Header />
             <div className="min-h-screen py-8 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <a
