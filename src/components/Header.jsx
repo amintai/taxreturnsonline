@@ -10,7 +10,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Our Services', path: '/our-services' },
+    { label: 'Our Services', path: '/services' },
     { label: 'Customers', path: '/our-customers' },
     { label: 'Pricing', path: '/pricing' },
     { label: 'Resources', path: '/our-resources' },

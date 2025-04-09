@@ -17,7 +17,7 @@ function App() {
     <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/our-services" element={<Services />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/our-services/company-registration" element={<CompanyRegistration />} />
         <Route path="/our-services/gst-registration" element={<GstRegistration />}/>
         <Route path="/our-services/iec-registration" element={<ImportExportCode />}/>
