@@ -7,10 +7,12 @@ import GstRegistration from "./pages/Services/GST";
 import CustomMarquee from "./components/Marquee";
 import ImportExportCode from "./pages/Services/ImportExportCode";
 import Header from "./components/Header";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
     <>
+    <Analytics />
     <CustomMarquee></CustomMarquee>
     <Header />
       <Routes>
