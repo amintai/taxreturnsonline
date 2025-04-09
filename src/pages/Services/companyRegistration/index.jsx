@@ -10,7 +10,7 @@ const CompanyRegistration = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Back Link */}
                     <a
-                        href="/our-services"
+                        href="/our-offerings"
                         className="flex items-center text-blue-600 hover:text-blue-800 text-sm sm:text-base mb-6"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
