@@ -17,8 +17,8 @@ function App() {
     <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/our-offerings" element={<ServiceGrid />} />
-        <Route path="/our-services/company-registration" element={<CompanyRegistration />} />
+        <Route path="/our-offerings/company-registration" element={<CompanyRegistration />} />
+        <Route path="/our-services/company-registration" element={<ServiceGrid />} />
         <Route path="/our-services/gst-registration" element={<GstRegistration />}/>
         <Route path="/our-services/iec-registration" element={<ImportExportCode />}/>
       </Routes>
