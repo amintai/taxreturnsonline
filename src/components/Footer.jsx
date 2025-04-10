@@ -1,8 +1,9 @@
 import React from "react";
 
 function Footer() {
+  
   return (
-    <div className="mt-24 pt-12 pb-8 bg-[#F8F9FA]">
+    <div className={`pt-12 pb-8 bg-[#F8F9FA]`}>
       <div className="container mb-12 text-center sm:text-left grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
         <div className="mx-auto sm:ml-0">
           <img

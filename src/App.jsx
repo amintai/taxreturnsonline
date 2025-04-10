@@ -5,6 +5,7 @@ import CustomMarquee from "./components/Marquee";
 import Header from "./components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 
 // Lazy load route components
 const Home = lazy(() => import("./pages/Home"));
@@ -12,7 +13,9 @@ const CompanyRegistration = lazy(() => import("./pages/Services/companyRegistrat
 const GstRegistration = lazy(() => import("./pages/Services/GST"));
 const ImportExportCode = lazy(() => import("./pages/Services/ImportExportCode"));
 const Services = lazy(() => import("./pages/Services"));
-const TaxPlanning = lazy(() => import("./pages/Services/TaxPlanning"))
+const TaxPlanning = lazy(() => import("./pages/Services/TaxPlanning"));
+const BookKeeping = lazy(() => import("./pages/Services/BookKeeping"));
+const ProjectReport = lazy(() => import("./pages/Services/ProjectReport"));
 
 function App() {
   return (
@@ -30,8 +33,11 @@ function App() {
           <Route path="/our-services/gst-registration" Component={GstRegistration} />
           <Route path="/our-services/iec-registration" Component={ImportExportCode} />
           <Route path="/tax-planning-consultancy" Component={TaxPlanning} />
+          <Route path="/bookkeeping-service" Component={BookKeeping}/>
+          <Route path="/tax-report-project" Component={ProjectReport} />
         </Routes>
       </Suspense>
+      <Footer />
     </>
   );
 }
