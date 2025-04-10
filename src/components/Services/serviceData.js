@@ -30,7 +30,7 @@ export const serviceData = [
     {
         id: "gst-registration",
         title: "GST Services",
-        description: "Outsource your GST compliance to Online Legal India. India's fastest growing online corporate services.",
+        description: "Outsource your GST compliance to Ease My Tax. India's fastest growing online corporate services.",
         imageUrl: "/images/services/gst-registration.jpeg",
         content: "Let our experts manage your GST compliance needs. We offer registration, return filing, reconciliation, and advisory services to ensure seamless tax compliance."
     },

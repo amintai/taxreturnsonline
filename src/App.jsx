@@ -12,6 +12,7 @@ const CompanyRegistration = lazy(() => import("./pages/Services/companyRegistrat
 const GstRegistration = lazy(() => import("./pages/Services/GST"));
 const ImportExportCode = lazy(() => import("./pages/Services/ImportExportCode"));
 const Services = lazy(() => import("./pages/Services"));
+const TaxPlanning = lazy(() => import("./pages/Services/TaxPlanning"))
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/our-services/company-registration" Component={CompanyRegistration} />
           <Route path="/our-services/gst-registration" Component={GstRegistration} />
           <Route path="/our-services/iec-registration" Component={ImportExportCode} />
+          <Route path="/tax-planning-consultancy" Component={TaxPlanning} />
         </Routes>
       </Suspense>
     </>

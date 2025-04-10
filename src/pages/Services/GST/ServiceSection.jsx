@@ -7,7 +7,7 @@ const services = [
         icon: "registration",
         color: "bg-yellow-500",
         description:
-          "Become a Govt. registered taxpayer in India. GST expert of Online Legal India will help you at every stage. Apply for GSTIN from any states in India.",
+          "Become a Govt. registered taxpayer in India. GST expert of Ease My Tax will help you at every stage. Apply for GSTIN from any states in India.",
       },
       {
         title: "GST Return Filing",
@@ -21,14 +21,14 @@ const services = [
         icon: "cancel",
         color: "bg-red-500",
         description:
-          "Your GST registration can be cancelled at anytime due to various reasons. You can easily cancel a GST registration online through Online Legal India.",
+          "Your GST registration can be cancelled at anytime due to various reasons. You can easily cancel a GST registration online through Ease My Tax.",
       },
       {
         title: "GST Modification Update",
         icon: "update",
         color: "bg-green-600",
         description:
-          "Online Legal India will help you fulfill all the formalities regarding the GST registration and amendment of GST registration.",
+          "Ease My Tax will help you fulfill all the formalities regarding the GST registration and amendment of GST registration.",
       },
       {
         title: "GST NIL Return Filing",

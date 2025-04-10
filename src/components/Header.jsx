@@ -11,7 +11,7 @@ export default function Header() {
 
   const navLinks = [
     { label: 'Our Services', path: '/our-services' },
-    { label: 'Customers', path: '/our-customers' },
+    { label: 'Tax & Compliance', path: '/tax-planning-consultancy' },
     { label: 'Pricing', path: '/pricing' },
     { label: 'Resources', path: '/our-resources' },
   ];
