@@ -22,12 +22,10 @@ const CompanyForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
         alert('Thanks! We will contact you soon.');
     };
 
     const refreshCaptcha = () => {
-        console.log('Refreshing captcha');
     };
 
     return (

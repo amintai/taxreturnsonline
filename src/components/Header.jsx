@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Menu,
   X,
@@ -82,41 +82,41 @@ export default function Header() {
     },
   ];
 
+  useEffect(() => {
+    setMenuOpen(false)
+  },[location.pathname])
+
+
   const isActive = (path) => {
-    console.log("LL", path, location.pathname)
     return location.pathname.includes(path);
   };
 
+  const toggleSubmenu = (e,path) => {
+    if(e.target.nodeName === "BUTTON") {
+      setActiveSubmenu((prev) => (prev === path ? null : path));
+    } else {
+      navigate(path)
+    }
+  };
+  
   const closeMenu = () => {
     setMenuOpen(false);
     setActiveSubmenu(null);
   };
 
-  const toggleSubmenu = (path) => {
-    if (activeSubmenu === path) {
-      setActiveSubmenu(null);
-    } else {
-      setActiveSubmenu(path);
-    }
-  };
-
-
   // Close submenu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if(!submenuRef.current) {
-        setActiveSubmenu(null);
-      }
-      if (submenuRef.current && !submenuRef.current.contains(event.target)) {
-        setActiveSubmenu(null);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (submenuRef.current && !submenuRef.current.contains(event.target)) {
+  //       setActiveSubmenu(null);
+  //     }
+  //   };
+  
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, []);
 
   return (
     <header className="container mx-auto px-4 flex justify-between items-center sticky top-0 z-50 bg-white shadow-md h-20">
@@ -142,10 +142,10 @@ export default function Header() {
           <div key={link.path} className="relative group">
             {link.hasSubmenu ? (
               <button
-                onClick={() => toggleSubmenu(link.path)}
+                onClick={(e) => toggleSubmenu(e,link.path)}
                 className={`flex items-center gap-1 ${isActive(link.path) ? 'font-bold text-green-600' : ''
                   }`}
-                  id={link.path}
+                id={link.path}
               >
                 {link.label}
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeSubmenu === link.path ? 'rotate-180' : ''}`} />
@@ -222,43 +222,48 @@ export default function Header() {
                   <button
                     className={`text-gray-800 text-lg font-medium w-full flex justify-between items-center ${isActive(link.path) ? 'text-green-600 font-semibold' : ''
                       }`}
-                    onClick={() => toggleSubmenu(link.path)}
+                    onClick={(e) => e.target.nodeName === "BUTTON" ? toggleSubmenu(e,link.path): null}
                   >
                     {link.label}
-                    <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${activeSubmenu === link.path ? 'rotate-180' : ''}`} />
+                    <ChevronDown
+                      className={`h-5 w-5 transition-transform duration-200 ${activeSubmenu === link.path ? 'rotate-180' : ''}`}
+                    />
                   </button>
 
                   {/* Mobile Submenu */}
                   {activeSubmenu === link.path && (
                     <div className="mt-2 ml-4 space-y-2">
                       {link.submenu.map((item) => (
-                        <a
-                          key={item.path}
-                          href={item.path}
+                        <Link
+                          // key={item.path}
+                          to={item.path}
+                          onClick={(e) => toggleSubmenu(e, link.path)}
                           className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-md transition-colors"
-                          onClick={closeMenu}
                         >
                           <span className="bg-green-100 p-2 rounded-full">
                             <item.icon className="h-4 w-4 text-green-600" />
                           </span>
                           <span>{item.label}</span>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </>
               ) : (
-                <a
-                  href={link.path}
+                <Link
+                  to={link.path}
                   className={`text-gray-800 text-lg font-medium w-full block ${isActive(link.path) ? 'text-green-600 font-semibold' : ''
                     }`}
-                  onClick={closeMenu}
+                  onClick={() => {
+                    setTimeout(() => closeMenu(), 100);
+                  }}
                 >
                   {link.label}
-                </a>
+                </Link>
               )}
             </div>
           ))}
+
           <button
             className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors w-full"
             onClick={closeMenu}
@@ -267,6 +272,7 @@ export default function Header() {
           </button>
         </div>
       )}
+
     </header>
   );
 }

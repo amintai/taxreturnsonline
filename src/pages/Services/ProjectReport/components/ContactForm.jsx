@@ -28,7 +28,6 @@ const ContactForm = () => {
     }
     
     toast.success("Callback request submitted successfully");
-    console.log("Form submitted:", formData);
     // Reset form
     setFormData({
       name: "",

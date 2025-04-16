@@ -31,7 +31,6 @@ const BookKeeping = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
         alert('Request for callback submitted successfully!');
         setFormData({
             name: '',
