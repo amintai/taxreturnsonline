@@ -16,7 +16,8 @@ import {
   PiggyBank,
   GraduationCap,
   BarChart,
-  FileSpreadsheet
+  FileSpreadsheet,
+  ArrowDownToDot
 } from 'lucide-react';
 
 // Custom hook to detect if on mobile
@@ -53,10 +54,10 @@ export default function Header() {
       path: '/our-services',
       hasSubmenu: true,
       submenu: [
-        { label: 'Project Reports', path: '/our-services/project-reports', icon: FileText },
-        { label: 'Financial Planning', path: '/our-services/financial-planning', icon: Calculator },
-        { label: 'Investment Advisory', path: '/our-services/investment-advisory', icon: DollarSign },
-        { label: 'Business Setup', path: '/our-services/business-setup', icon: Briefcase },
+        { label: 'Company Registration', path: '/our-services/company-registration', icon: Calculator },
+        { label: 'GST Services', path: '/our-services/gst-registration', icon: DollarSign },
+        { label: 'IEC Registrations', path: '/our-services/iec-registration', icon: Briefcase },
+        { label: 'View All Services', path: '/our-services', icon: ArrowDownToDot },
       ]
     },
     {
@@ -64,12 +65,11 @@ export default function Header() {
       path: '/tax-planning-consultancy',
       hasSubmenu: true,
       submenu: [
-        { label: 'Tax Filing', path: '/tax-planning-consultancy/tax-filing', icon: ScrollText },
-        { label: 'Compliance Services', path: '/tax-planning-consultancy/compliance', icon: BadgeCheck },
-        { label: 'Tax Planning', path: '/tax-planning-consultancy/planning', icon: PiggyBank },
+        { label: 'Tax Planning & Consultancy', path: '/tax-compliance/tax-planning-consultancy', icon: ScrollText },
+        { label: 'Online Bookkeeping', path: '/tax-compliance/bookkeeping-service', icon: BadgeCheck },
+        { label: 'Project Report', path: '/tax-compliance/tax-report-project', icon: PiggyBank },
       ]
     },
-    { label: 'Pricing', path: '/pricing', hasSubmenu: false },
     {
       label: 'Resources',
       path: '/our-resources',
@@ -83,6 +83,7 @@ export default function Header() {
   ];
 
   const isActive = (path) => {
+    console.log("LL", path, location.pathname)
     return location.pathname.includes(path);
   };
 
@@ -149,7 +150,7 @@ export default function Header() {
                 {link.label}
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeSubmenu === link.path ? 'rotate-180' : ''}`} />
                 {isActive(link.path) && (
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-green-600"></div>
+                  <div className=" absolute bottom-0 left-0 w-full h-1 bg-green-600"></div>
                 )}
               </button>
             ) : (

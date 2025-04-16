@@ -32,9 +32,9 @@ function App() {
           <Route path="/our-services/company-registration" Component={CompanyRegistration} />
           <Route path="/our-services/gst-registration" Component={GstRegistration} />
           <Route path="/our-services/iec-registration" Component={ImportExportCode} />
-          <Route path="/tax-planning-consultancy" Component={TaxPlanning} />
-          <Route path="/bookkeeping-service" Component={BookKeeping}/>
-          <Route path="/tax-report-project" Component={ProjectReport} />
+          <Route path="/tax-compliance/tax-planning-consultancy" Component={TaxPlanning} />
+          <Route path="/tax-compliance/bookkeeping-service" Component={BookKeeping}/>
+          <Route path="/tax-compliance/tax-report-project" Component={ProjectReport} />
         </Routes>
       </Suspense>
       <Footer />
