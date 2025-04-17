@@ -196,7 +196,7 @@ export default function Header() {
             )}
           </div>
         ))}
-        <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors">
+        <button className="bg-green-600 hover:bg-green-700 font-bold text-white px-4 py-2 rounded-md transition-colors">
           +91 8866397377
         </button>
       </div>

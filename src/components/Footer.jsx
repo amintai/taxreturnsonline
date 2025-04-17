@@ -53,7 +53,7 @@ function Footer() {
             />
           </div>
           <button className="primary-button mt-6 bg-[#02897A] text-white hover:bg-[#026a66] transition duration-200">
-            Sign up Now
+            Submit
           </button>
         </div>
       </div>
