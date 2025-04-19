@@ -101,7 +101,7 @@ const FormSection = ({
 
                         <button
                             type="submit"
-                            className="w-full py-3 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors"
+                            className="w-full py-3 bg-blue-800 text-white font-medium rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors"
                         >
                             Contact Us
                         </button>
@@ -113,7 +113,7 @@ const FormSection = ({
                     <div className="mb-3">
                         <button
                             onClick={() => toggleAccordion('tax-planning-process')}
-                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-planning-process' ? 'bg-green-500 text-white' : 'bg-green-500 text-white'} rounded-md`}
+                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-planning-process' ? 'bg-blue-800 text-white' : 'bg-blue-800 text-white'} rounded-md`}
                         >
                             <span className="font-medium">What is the Bookkeeping Process?</span>
                             {expandedSection === 'tax-planning-process' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -128,7 +128,7 @@ const FormSection = ({
                     <div className="mb-3">
                         <button
                             onClick={() => toggleAccordion('tax-advisor')}
-                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-advisor' ? 'bg-green-500 text-white' : 'bg-green-500 text-white'} rounded-md`}
+                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-advisor' ? 'bg-blue-800 text-white' : 'bg-blue-800 text-white'} rounded-md`}
                         >
                             <span className="font-medium">Is Bookkeeping mandatory?</span>
                             {expandedSection === 'tax-advisor' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -143,7 +143,7 @@ const FormSection = ({
                     <div className="mb-3">
                         <button
                             onClick={() => toggleAccordion('tax-planning-procedure')}
-                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-planning-procedure' ? 'bg-green-500 text-white' : 'bg-green-500 text-white'} rounded-md`}
+                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-planning-procedure' ? 'bg-blue-800 text-white' : 'bg-blue-800 text-white'} rounded-md`}
                         >
                             <span className="font-medium">Why is Bookkeeping Essential?</span>
                             {expandedSection === 'tax-planning-procedure' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -180,7 +180,7 @@ const FormSection = ({
                     <div className="mb-3">
                         <button
                             onClick={() => toggleAccordion('tax-responsibilities')}
-                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-responsibilities' ? 'bg-green-500 text-white' : 'bg-green-500 text-white'} rounded-md`}
+                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'tax-responsibilities' ? 'bg-blue-800 text-white' : 'bg-blue-800 text-white'} rounded-md`}
                         >
                             <span className="font-medium">
                                 What is the service charge, and how much will I need to pay?
@@ -197,7 +197,7 @@ const FormSection = ({
                     <div className="mb-3">
                         <button
                             onClick={() => toggleAccordion('benefits')}
-                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'benefits' ? 'bg-green-500 text-white' : 'bg-green-500 text-white'} rounded-md`}
+                            className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'benefits' ? 'bg-blue-800 text-white' : 'bg-blue-800 text-white'} rounded-md`}
                         >
                             <span className="font-medium">Benefits of availing Tax Consultancy from Ease My Tax™</span>
                             {expandedSection === 'benefits' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}

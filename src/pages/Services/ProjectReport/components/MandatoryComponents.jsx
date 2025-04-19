@@ -6,7 +6,7 @@ const MandatoryComponents = () => {
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
           What are the Mandatory Parts of a <span className="text-orange-500">Project Report</span>?
-          <div className="h-1 w-32 bg-green-500 mx-auto mt-2"></div>
+          <div className="h-1 w-32 bg-blue-800 mx-auto mt-2"></div>
         </h2>
         
         <div className="max-w-4xl mx-auto text-gray-800">

@@ -19,7 +19,7 @@ const ServiceCard = ({
                 <p className="text-gray-600 mb-6 text-sm">{description}</p>
                 <button
                     variant="link"
-                    className="text-green-500 hover:text-green-600 p-0 flex items-center gap-1 font-medium"
+                    className="text-green-500 hover:text-blue-800 p-0 flex items-center gap-1 font-medium"
                 >
                     Click Here <ArrowRight className="h-4 w-4" />
                 </button>

@@ -110,7 +110,7 @@ const Pricing = () => {
                             </div>
 
                             <div className="px-6 pb-6 mt-auto">
-                                <button className="w-full py-3 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 focus:outline-none transition-colors">
+                                <button className="w-full py-3 bg-blue-800 text-white font-medium rounded-md hover:bg-blue-800 focus:outline-none transition-colors">
                                     Request Callback
                                 </button>
                             </div>

@@ -6,7 +6,7 @@ const ProjectReportInfo = () => {
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
           Prepare a Professional <span className="text-orange-500">Project Report</span> to Get Loans at a Glance!
-          <div className="h-1 w-32 bg-green-500 mx-auto mt-2"></div>
+          <div className="h-1 w-32 bg-blue-800 mx-auto mt-2"></div>
         </h2>
         
         <div className="max-w-4xl mx-auto text-gray-800">
@@ -18,7 +18,7 @@ const ProjectReportInfo = () => {
           </p>
           
           <div className="flex justify-center mt-8">
-            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-10 rounded-full">
+            <button className="bg-blue-800 hover:bg-green-700 text-white font-semibold py-2 px-10 rounded-full">
               Contact Us
             </button>
           </div>

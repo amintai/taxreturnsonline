@@ -29,7 +29,7 @@ const WorkProcess = () => {
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           How We Work?
-          <div className="h-1 w-32 bg-green-500 mx-auto mt-2"></div>
+          <div className="h-1 w-32 bg-blue-800 mx-auto mt-2"></div>
         </h2>
         
         <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
@@ -37,7 +37,7 @@ const WorkProcess = () => {
             <div key={index} className="w-full md:w-64 relative">
               <div className="border border-gray-200 rounded-lg p-6 bg-white h-full flex flex-col items-center justify-center text-center">
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-green-600 text-white w-12 h-12 flex items-center justify-center rounded-full">
+                  <div className="bg-blue-800 text-white w-12 h-12 flex items-center justify-center rounded-full">
                     <span className="font-bold">{step.number}</span>
                   </div>
                 </div>
@@ -51,7 +51,7 @@ const WorkProcess = () => {
           <div className="w-full md:w-64 relative">
             <div className="border border-gray-200 rounded-lg p-6 bg-white h-full flex flex-col items-center justify-center text-center">
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                <div className="bg-green-600 text-white w-12 h-12 flex items-center justify-center rounded-full">
+                <div className="bg-blue-800 text-white w-12 h-12 flex items-center justify-center rounded-full">
                   <span className="font-bold">{steps[4].number}</span>
                 </div>
               </div>

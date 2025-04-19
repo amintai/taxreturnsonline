@@ -143,25 +143,25 @@ export default function Header() {
             {link.hasSubmenu ? (
               <button
                 onClick={(e) => toggleSubmenu(e,link.path)}
-                className={`flex items-center gap-1 ${isActive(link.path) ? 'font-bold text-green-600' : ''
+                className={`flex items-center gap-1 ${isActive(link.path) ? 'font-bold text-blue-800' : ''
                   }`}
                 id={link.path}
               >
                 {link.label}
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeSubmenu === link.path ? 'rotate-180' : ''}`} />
                 {isActive(link.path) && (
-                  <div className=" absolute bottom-0 left-0 w-full h-1 bg-green-600"></div>
+                  <div className=" absolute bottom-0 left-0 w-full h-1 bg-blue-800"></div>
                 )}
               </button>
             ) : (
               <a
                 href={link.path}
-                className={`relative ${isActive(link.path) ? 'font-bold text-green-600' : ''
+                className={`relative ${isActive(link.path) ? 'font-bold text-blue-800' : ''
                   }`}
               >
                 {link.label}
                 {isActive(link.path) && (
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-green-600"></div>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-800"></div>
                 )}
               </a>
             )}
@@ -174,7 +174,7 @@ export default function Header() {
                 className="absolute left-0 mt-4 w-64 bg-white shadow-lg rounded-md overflow-hidden z-50"
               >
                 <div className="p-4 border-b border-gray-100">
-                  <h3 className="text-lg font-semibold text-green-600">{link.label}</h3>
+                  <h3 className="text-lg font-semibold text-blue-800">{link.label}</h3>
                   <p className="text-sm text-gray-500">Select from our range of services</p>
                 </div>
                 <div className="p-2">
@@ -186,7 +186,7 @@ export default function Header() {
                       onClick={closeMenu}
                     >
                       <span className="bg-green-100 p-2 rounded-full">
-                        <item.icon className="h-5 w-5 text-green-600" />
+                        <item.icon className="h-5 w-5 text-blue-800" />
                       </span>
                       <span className="font-medium">{item.label}</span>
                     </a>
@@ -196,7 +196,7 @@ export default function Header() {
             )}
           </div>
         ))}
-        <button className="bg-green-600 hover:bg-green-700 font-bold text-white px-4 py-2 rounded-md transition-colors">
+        <button className="bg-blue-800 hover:bg-green-700 font-bold text-white px-4 py-2 rounded-md transition-colors">
           +91 8866397377
         </button>
       </div>
@@ -220,7 +220,7 @@ export default function Header() {
               {link.hasSubmenu ? (
                 <>
                   <button
-                    className={`text-gray-800 text-lg font-medium w-full flex justify-between items-center ${isActive(link.path) ? 'text-green-600 font-semibold' : ''
+                    className={`text-gray-800 text-lg font-medium w-full flex justify-between items-center ${isActive(link.path) ? 'text-blue-800 font-semibold' : ''
                       }`}
                     onClick={(e) => e.target.nodeName === "BUTTON" ? toggleSubmenu(e,link.path): null}
                   >
@@ -241,7 +241,7 @@ export default function Header() {
                           className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-md transition-colors"
                         >
                           <span className="bg-green-100 p-2 rounded-full">
-                            <item.icon className="h-4 w-4 text-green-600" />
+                            <item.icon className="h-4 w-4 text-blue-800" />
                           </span>
                           <span>{item.label}</span>
                         </Link>
@@ -252,7 +252,7 @@ export default function Header() {
               ) : (
                 <Link
                   to={link.path}
-                  className={`text-gray-800 text-lg font-medium w-full block ${isActive(link.path) ? 'text-green-600 font-semibold' : ''
+                  className={`text-gray-800 text-lg font-medium w-full block ${isActive(link.path) ? 'text-blue-800 font-semibold' : ''
                     }`}
                   onClick={() => {
                     setTimeout(() => closeMenu(), 100);
@@ -265,7 +265,7 @@ export default function Header() {
           ))}
 
           <button
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors w-full"
+            className="bg-blue-800 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors w-full"
             onClick={closeMenu}
           >
             +91 8866397377

@@ -26,7 +26,7 @@ const services = [
       {
         title: "GST Modification Update",
         icon: "update",
-        color: "bg-green-600",
+        color: "bg-blue-800",
         description:
           "Ease My Tax will help you fulfill all the formalities regarding the GST registration and amendment of GST registration.",
       },
@@ -66,7 +66,7 @@ const ServiceSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-2">GST Services</h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-blue-800 mx-auto"></div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (

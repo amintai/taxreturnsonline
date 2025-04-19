@@ -19,22 +19,22 @@ function WhyChooseUs() {
           description="We help you claim every eligible deduction and exemption."
         />
         <StrengthItem
-          iconSrc="images/icon-support-2.svg"
+          iconSrc="images/icon-support-3.svg"
           heading="End-to-End Support"
           description="From filing to audits, we provide full support at every stage."
         />
         <StrengthItem
-          iconSrc="images/icon-security-2.svg"
+          iconSrc="images/icon-security-3.svg"
           heading="Data Security"
           description="Your financial information is safe with our advanced security measures."
         />
         <StrengthItem
-          iconSrc="images/icon-convenience-2.svg"
+          iconSrc="images/icon-convenience-3.svg"
           heading="Convenient Online Process"
           description="File your taxes anytime, anywhere with our easy-to-use platform."
         />
         <StrengthItem
-          iconSrc="images/icon-trust-2.svg"
+          iconSrc="images/icon-trust-3.svg"
           heading="Trusted by Thousands"
           description="Join thousands of satisfied clients who rely on us for hassle-free tax filing."
         />

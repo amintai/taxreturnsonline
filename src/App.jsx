@@ -16,6 +16,8 @@ const Services = lazy(() => import("./pages/Services"));
 const TaxPlanning = lazy(() => import("./pages/Services/TaxPlanning"));
 const BookKeeping = lazy(() => import("./pages/Services/BookKeeping"));
 const ProjectReport = lazy(() => import("./pages/Services/ProjectReport"));
+const ItrReturn = lazy(() => import("./pages/Services/ITR"));
+const Acconting = lazy(() => import("./pages/Services/Accounting"));
 
 function App() {
   return (
@@ -32,6 +34,11 @@ function App() {
           <Route path="/our-services/company-registration" Component={CompanyRegistration} />
           <Route path="/our-services/gst-registration" Component={GstRegistration} />
           <Route path="/our-services/iec-registration" Component={ImportExportCode} />
+
+          <Route path="/our-services/trademark-registration" Component={ImportExportCode} />
+          <Route path="/our-services/accounting-services" Component={Acconting} />
+          <Route path="/our-services/itr-filling" Component={ItrReturn} />
+        
           <Route path="/tax-compliance/tax-planning-consultancy" Component={TaxPlanning} />
           <Route path="/tax-compliance/bookkeeping-service" Component={BookKeeping}/>
           <Route path="/tax-compliance/tax-report-project" Component={ProjectReport} />

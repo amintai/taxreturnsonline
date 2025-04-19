@@ -56,7 +56,7 @@ const BookKeeping = () => {
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
                     Outsource your Accounting Service
                 </h1>
-                <div className="w-32 h-1 bg-green-500 mx-auto mt-2"></div>
+                <div className="w-32 h-1 bg-blue-800 mx-auto mt-2"></div>
 
                 <p className="mt-2 text-md md:text-lg text-gray-600 max-w-4xl mx-auto">
                     Let India’s Recommended Accountants Organize, Prepare and Analyze your Financial Transactions | Easy & Quick Cloud-based Bookkeeping Procedure

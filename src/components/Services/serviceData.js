@@ -1,6 +1,6 @@
 export const serviceData = [
     {
-        id: "itr-registration",
+        id: "itr-filling",
         title: "ITR Filing",
         description: "Easily file your Income Tax Return with expert assistance and maximize your refunds.",
         imageUrl: "/images/services/itr-service.jpeg",

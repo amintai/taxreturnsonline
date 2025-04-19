@@ -30,7 +30,7 @@ const ProjectReportComponents = () => {
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
           Components of <span className="text-orange-500">Project Report</span>
-          <div className="h-1 w-32 bg-green-500 mx-auto mt-2"></div>
+          <div className="h-1 w-32 bg-blue-800 mx-auto mt-2"></div>
         </h2>
         
         <p className="text-center mb-12 font-medium text-lg">
