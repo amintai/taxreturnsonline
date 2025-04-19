@@ -34,7 +34,7 @@ const ServiceCard = ({ id, title, description, imageUrl }) => {
                     {description}
                 </p>
                 <div
-                    className="mt-4 text-left px-0 text-gray-700 hover:text-orange-500 font-medium transition-colors"
+                    className="mt-4 text-left px-0 text-blue-800 hover:text-orange-500 font-medium transition-colors"
                 >
                     Click Here
                 </div>
