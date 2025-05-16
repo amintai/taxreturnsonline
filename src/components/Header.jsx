@@ -65,21 +65,22 @@ export default function Header() {
       path: '/tax-planning-consultancy',
       hasSubmenu: true,
       submenu: [
+        { label: 'Annual Compliance Filling', path: '/tax-compliance/annual-complience-filling', icon: FileText },
         { label: 'Tax Planning & Consultancy', path: '/tax-compliance/tax-planning-consultancy', icon: ScrollText },
         { label: 'Online Bookkeeping', path: '/tax-compliance/bookkeeping-service', icon: BadgeCheck },
         { label: 'Project Report', path: '/tax-compliance/tax-report-project', icon: PiggyBank },
       ]
     },
-    {
-      label: 'Resources',
-      path: '/our-resources',
-      hasSubmenu: true,
-      submenu: [
-        { label: 'Guides', path: '/our-resources/guides', icon: GraduationCap },
-        { label: 'Reports', path: '/our-resources/reports', icon: BarChart },
-        { label: 'Templates', path: '/our-resources/templates', icon: FileSpreadsheet },
-      ]
-    },
+    // {
+    //   label: 'Resources',
+    //   path: '/our-resources',
+    //   hasSubmenu: true,
+    //   submenu: [
+    //     { label: 'Guides', path: '/our-resources/guides', icon: GraduationCap },
+    //     { label: 'Reports', path: '/our-resources/reports', icon: BarChart },
+    //     { label: 'Templates', path: '/our-resources/templates', icon: FileSpreadsheet },
+    //   ]
+    // },
   ];
 
   useEffect(() => {

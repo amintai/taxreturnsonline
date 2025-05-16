@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
+import AnnualComplienceFilling from "./pages/Services/ComplienceFilling";
 
 // Lazy load route components
 const Home = lazy(() => import("./pages/Home"));
@@ -18,6 +19,8 @@ const BookKeeping = lazy(() => import("./pages/Services/BookKeeping"));
 const ProjectReport = lazy(() => import("./pages/Services/ProjectReport"));
 const ItrReturn = lazy(() => import("./pages/Services/ITR"));
 const Acconting = lazy(() => import("./pages/Services/Accounting"));
+const ContactUs = lazy(() => import("./pages/contactUs"));
+
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
       <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
         <Routes>
           <Route path="/" Component={Home} />
+
+          <Route path="/contact-us" Component={ContactUs}/>
+
           <Route path="/our-services" Component={Services} />
           <Route path="/our-services/company-registration" Component={CompanyRegistration} />
           <Route path="/our-services/gst-registration" Component={GstRegistration} />
@@ -42,6 +48,8 @@ function App() {
           <Route path="/tax-compliance/tax-planning-consultancy" Component={TaxPlanning} />
           <Route path="/tax-compliance/bookkeeping-service" Component={BookKeeping}/>
           <Route path="/tax-compliance/tax-report-project" Component={ProjectReport} />
+
+          <Route path="/tax-compliance/annual-complience-filling" Component={AnnualComplienceFilling} />
         </Routes>
       </Suspense>
       <Footer />

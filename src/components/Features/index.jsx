@@ -6,8 +6,10 @@ import {
 } from "@heroicons/react/solid";
 import React from "react";
 import FeatureItem from "./FeatureItem";
+import { useNavigate } from "react-router-dom";
 
 function Features() {
+  const navigate = useNavigate();
   return (
     <section className="container mt-24 flex flex-col items-center">
       <h2 className="text-[32px] font-bold text-center sm:text-left">
@@ -41,7 +43,7 @@ function Features() {
         />
       </div>
 
-      <button className="primary-button mt-14">Get In Touch</button>
+      <button onClick={() => navigate('/contact-us')} className="primary-button mt-14">Get In Touch</button>
     </section>
   );
 }

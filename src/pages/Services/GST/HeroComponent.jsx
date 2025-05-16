@@ -1,7 +1,9 @@
 import { Check } from 'lucide-react'
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const HeroComponent = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="bg-blue-800 w-full py-16 px-4 md:px-8 lg:px-16">
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
@@ -36,7 +38,7 @@ const HeroComponent = () => {
                         </div>
                     </div>
                     <div className="mt-8">
-                        <button className="bg-blue-800 hover:bg-blue-800 text-white font-semibold px-6 py-2 rounded-md">
+                        <button onClick={() => navigate('/contact-us')} className="bg-blue-800 hover:bg-blue-800 text-white font-semibold px-6 py-2 rounded-md">
                             Contact Us
                         </button>
                     </div>
