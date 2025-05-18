@@ -7,6 +7,8 @@ import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 import AnnualComplienceFilling from "./pages/Services/ComplienceFilling";
+import PrivateCompany from "./pages/Services/companyRegistration/privateCompany";
+import LLP from "./pages/Services/companyRegistration/LLP";
 
 // Lazy load route components
 const Home = lazy(() => import("./pages/Home"));
@@ -37,7 +39,11 @@ function App() {
           <Route path="/contact-us" Component={ContactUs}/>
 
           <Route path="/our-services" Component={Services} />
+    
           <Route path="/our-services/company-registration" Component={CompanyRegistration} />
+          <Route path="/our-services/company-registration/private-limited-company" Component={PrivateCompany} />
+          <Route path="/our-services/company-registration/limited-liability-partnership" Component={LLP} />
+    
           <Route path="/our-services/gst-registration" Component={GstRegistration} />
           <Route path="/our-services/iec-registration" Component={ImportExportCode} />
 
