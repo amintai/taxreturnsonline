@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import React from 'react'
+import Button from '../../../components/Button'
 
 const FormSection = ({
     handleSubmit,
@@ -7,7 +8,9 @@ const FormSection = ({
     handleInputChange,
     handleCheckboxChange,
     toggleAccordion,
-    expandedSection
+    expandedSection,
+    loading,
+    formRef,
 }) => {
     return (
         <section className="py-8 px-4 max-w-7xl mx-auto text-left">
@@ -17,7 +20,7 @@ const FormSection = ({
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">Need Help with Online Bookkeeping?</h2>
                     <p className="text-gray-600 mb-4">Fill Up the below Mentioned Form</p>
 
-                    <form onSubmit={handleSubmit}>
+                    <form ref={formRef} onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label htmlFor="name" className="block text-gray-700 mb-2">Name <span className="text-red-500">*</span></label>
                             <input
@@ -195,13 +198,14 @@ const FormSection = ({
                     </div>
 
                     <div className="mb-3">
-                        <button
+                        <Button
                             onClick={() => toggleAccordion('benefits')}
+                            loading={loading}
                             className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'benefits' ? 'bg-blue-800 text-white' : 'bg-blue-800 text-white'} rounded-md`}
                         >
                             <span className="font-medium">Benefits of availing Tax Consultancy from Ease My Tax™</span>
                             {expandedSection === 'benefits' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                        </button>
+                        </Button>
                         {expandedSection === 'benefits' && (
                             <div className="p-4 bg-gray-50 rounded-b-md border border-t-0 border-gray-200">
                                 <p>By choosing our tax consultancy services, you benefit from expert advice from certified professionals, personalized tax planning strategies, time and cost efficiency, minimization of tax liabilities through legal means, reduced risk of errors and penalties, and continuous support throughout the financial year.</p>

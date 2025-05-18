@@ -1,5 +1,7 @@
-import  { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
+import useEmailJS from "../../../../hooks/emailService";
+import Button from "../../../../components/Button";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -19,21 +21,38 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, agreed: e.target.checked }));
   };
 
+  const { loading, error, success, sendEmail } = useEmailJS();
+  const formRef = useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.agreed) {
       toast.error("Please agree to the terms and conditions");
       return;
     }
-    
-    toast.success("Callback request submitted successfully");
-    setFormData({ name: "", mobile: "", email: "", state: "", agreed: false });
+
+    sendEmail(formRef)
+      .then(() => {
+        toast.success("Callback request submitted successfully");
+        setFormData({
+          name: "",
+          mobile: "",
+          email: "",
+          state: "",
+          agreed: false,
+        });
+      })
+      .catch(() => {
+        alert("Failed to send message, please try again later.");
+      });
   };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold mb-4 text-center">We're here to help</h3>
-      <form onSubmit={handleSubmit}>
+      <h3 className="text-xl font-semibold mb-4 text-center">
+        We're here to help
+      </h3>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <div className="space-y-4">
           <input
             type="text"
@@ -69,7 +88,9 @@ const ContactForm = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             required
           >
-            <option value="" disabled>State</option>
+            <option value="" disabled>
+              State
+            </option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Delhi">Delhi</option>
             <option value="Karnataka">Karnataka</option>
@@ -88,15 +109,18 @@ const ContactForm = () => {
               className="mt-1"
             />
             <label htmlFor="terms" className="text-xs text-gray-600">
-              I have read & agreed to the company's Terms and Conditions, disclaimer and refund policy, and am ready to accept calls, SMS, emails, etc.
+              I have read & agreed to the company's Terms and Conditions,
+              disclaimer and refund policy, and am ready to accept calls, SMS,
+              emails, etc.
             </label>
           </div>
-          <button 
-            type="submit" 
+          <Button
+            type="submit"
+            loading={loading}
             className="w-full bg-blue-800 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded"
           >
             Get a callback
-          </button>
+          </Button>
         </div>
       </form>
     </div>
