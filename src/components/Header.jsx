@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-key */
 
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Menu,
   X,
@@ -17,8 +18,8 @@ import {
   GraduationCap,
   BarChart,
   FileSpreadsheet,
-  ArrowDownToDot
-} from 'lucide-react';
+  ArrowDownToDot,
+} from "lucide-react";
 
 // Custom hook to detect if on mobile
 const useIsMobile = () => {
@@ -30,10 +31,10 @@ const useIsMobile = () => {
     };
 
     checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
+    window.addEventListener("resize", checkIfMobile);
 
     return () => {
-      window.removeEventListener('resize', checkIfMobile);
+      window.removeEventListener("resize", checkIfMobile);
     };
   }, []);
 
@@ -50,26 +51,58 @@ export default function Header() {
 
   const navLinks = [
     {
-      label: 'Our Services',
-      path: '/our-services',
+      label: "Our Services",
+      path: "/our-services",
       hasSubmenu: true,
       submenu: [
-        { label: 'Company Registration', path: '/our-services/company-registration', icon: Calculator },
-        { label: 'GST Services', path: '/our-services/gst-registration', icon: DollarSign },
-        { label: 'IEC Registrations', path: '/our-services/iec-registration', icon: Briefcase },
-        { label: 'View All Services', path: '/our-services', icon: ArrowDownToDot },
-      ]
+        {
+          label: "Company Registration",
+          path: "/our-services/company-registration",
+          icon: Calculator,
+        },
+        {
+          label: "GST Services",
+          path: "/our-services/gst-registration",
+          icon: DollarSign,
+        },
+        {
+          label: "IEC Registrations",
+          path: "/our-services/iec-registration",
+          icon: Briefcase,
+        },
+        {
+          label: "View All Services",
+          path: "/our-services",
+          icon: ArrowDownToDot,
+        },
+      ],
     },
     {
-      label: 'Tax & Compliance',
-      path: '/tax-planning-consultancy',
+      label: "Tax & Compliance",
+      path: "/tax-planning-consultancy",
       hasSubmenu: true,
       submenu: [
-        { label: 'Annual Compliance Filling', path: '/tax-compliance/annual-complience-filling', icon: FileText },
-        { label: 'Tax Planning & Consultancy', path: '/tax-compliance/tax-planning-consultancy', icon: ScrollText },
-        { label: 'Online Bookkeeping', path: '/tax-compliance/bookkeeping-service', icon: BadgeCheck },
-        { label: 'Project Report', path: '/tax-compliance/tax-report-project', icon: PiggyBank },
-      ]
+        {
+          label: "Annual Compliance Filling",
+          path: "/tax-compliance/annual-complience-filling",
+          icon: FileText,
+        },
+        {
+          label: "Tax Planning & Consultancy",
+          path: "/tax-compliance/tax-planning-consultancy",
+          icon: ScrollText,
+        },
+        {
+          label: "Online Bookkeeping",
+          path: "/tax-compliance/bookkeeping-service",
+          icon: BadgeCheck,
+        },
+        {
+          label: "Project Report",
+          path: "/tax-compliance/tax-report-project",
+          icon: PiggyBank,
+        },
+      ],
     },
     // {
     //   label: 'Resources',
@@ -84,22 +117,21 @@ export default function Header() {
   ];
 
   useEffect(() => {
-    setMenuOpen(false)
-  },[location.pathname])
-
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   const isActive = (path) => {
     return location.pathname.includes(path);
   };
 
-  const toggleSubmenu = (e,path) => {
-    if(e.target.nodeName === "BUTTON") {
+  const toggleSubmenu = (e, path) => {
+    if (e.target.nodeName === "BUTTON") {
       setActiveSubmenu((prev) => (prev === path ? null : path));
     } else {
-      navigate(path)
+      navigate(path);
     }
   };
-  
+
   const closeMenu = () => {
     setMenuOpen(false);
     setActiveSubmenu(null);
@@ -112,7 +144,7 @@ export default function Header() {
   //       setActiveSubmenu(null);
   //     }
   //   };
-  
+
   //   document.addEventListener('mousedown', handleClickOutside);
   //   return () => {
   //     document.removeEventListener('mousedown', handleClickOutside);
@@ -127,14 +159,14 @@ export default function Header() {
         src="/images/logo-full.svg"
         alt="Logo"
         width="180"
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
       />
       <img
         className="hidden md:inline-block lg:hidden cursor-pointer"
         src="/images/logo.svg"
         alt="Logo Icon"
         width="45"
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
       />
 
       {/* Desktop Nav */}
@@ -143,13 +175,18 @@ export default function Header() {
           <div key={link.path} className="relative group">
             {link.hasSubmenu ? (
               <button
-                onClick={(e) => toggleSubmenu(e,link.path)}
-                className={`flex items-center gap-1 ${isActive(link.path) ? 'font-bold text-blue-800' : ''
-                  }`}
+                onClick={(e) => toggleSubmenu(e, link.path)}
+                className={`flex items-center gap-1 ${
+                  isActive(link.path) ? "font-bold text-blue-800" : ""
+                }`}
                 id={link.path}
               >
                 {link.label}
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeSubmenu === link.path ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${
+                    activeSubmenu === link.path ? "rotate-180" : ""
+                  }`}
+                />
                 {isActive(link.path) && (
                   <div className=" absolute bottom-0 left-0 w-full h-1 bg-blue-800"></div>
                 )}
@@ -157,8 +194,9 @@ export default function Header() {
             ) : (
               <a
                 href={link.path}
-                className={`relative ${isActive(link.path) ? 'font-bold text-blue-800' : ''
-                  }`}
+                className={`relative ${
+                  isActive(link.path) ? "font-bold text-blue-800" : ""
+                }`}
               >
                 {link.label}
                 {isActive(link.path) && (
@@ -175,8 +213,12 @@ export default function Header() {
                 className="absolute left-0 mt-4 w-64 bg-white shadow-lg rounded-md overflow-hidden z-50"
               >
                 <div className="p-4 border-b border-gray-100">
-                  <h3 className="text-lg font-semibold text-blue-800">{link.label}</h3>
-                  <p className="text-sm text-gray-500">Select from our range of services</p>
+                  <h3 className="text-lg font-semibold text-blue-800">
+                    {link.label}
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Select from our range of services
+                  </p>
                 </div>
                 <div className="p-2">
                   {link.submenu.map((item) => (
@@ -221,13 +263,20 @@ export default function Header() {
               {link.hasSubmenu ? (
                 <>
                   <button
-                    className={`text-gray-800 text-lg font-medium w-full flex justify-between items-center ${isActive(link.path) ? 'text-blue-800 font-semibold' : ''
-                      }`}
-                    onClick={(e) => e.target.nodeName === "BUTTON" ? toggleSubmenu(e,link.path): null}
+                    className={`text-gray-800 text-lg font-medium w-full flex justify-between items-center ${
+                      isActive(link.path) ? "text-blue-800 font-semibold" : ""
+                    }`}
+                    onClick={(e) =>
+                      e.target.nodeName === "BUTTON"
+                        ? toggleSubmenu(e, link.path)
+                        : null
+                    }
                   >
                     {link.label}
                     <ChevronDown
-                      className={`h-5 w-5 transition-transform duration-200 ${activeSubmenu === link.path ? 'rotate-180' : ''}`}
+                      className={`h-5 w-5 transition-transform duration-200 ${
+                        activeSubmenu === link.path ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
 
@@ -253,8 +302,9 @@ export default function Header() {
               ) : (
                 <Link
                   to={link.path}
-                  className={`text-gray-800 text-lg font-medium w-full block ${isActive(link.path) ? 'text-blue-800 font-semibold' : ''
-                    }`}
+                  className={`text-gray-800 text-lg font-medium w-full block ${
+                    isActive(link.path) ? "text-blue-800 font-semibold" : ""
+                  }`}
                   onClick={() => {
                     setTimeout(() => closeMenu(), 100);
                   }}
@@ -273,7 +323,6 @@ export default function Header() {
           </button>
         </div>
       )}
-
     </header>
   );
 }

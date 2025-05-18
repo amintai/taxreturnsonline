@@ -4,6 +4,7 @@ import ObjectiveSection from './components/ObjectiveSection';
 import HowWeWork from './components/HowWeWork';
 import Pricing from './components/Pricing';
 import HeroSection from './components/HeroSection';
+import ImageBanner from './components/ImageBanner';
 
 const TaxPlanning = () => {
   const [formData, setFormData] = useState({
@@ -53,6 +54,7 @@ const TaxPlanning = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <ImageBanner />
       <HeroSection />
 
       <FaqSection 

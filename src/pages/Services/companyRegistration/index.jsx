@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import ComparisonTable from "./ComparisionTable";
 import CompanyRegistrationInfo from "./CompanyRegistrationInfo";
+import TypesOfCompanyReg from "./TypesOfCompanyReg";
 
 const CompanyRegistration = () => {
   const documents = [
@@ -31,8 +32,7 @@ const CompanyRegistration = () => {
     },
     {
       icon: <FileCheck className="w-12 h-12 text-iec-blue" />,
-      title:
-        "Copy of Electricity Bill",
+      title: "Copy of Electricity Bill",
       image: "/images/services/passbook.jpeg",
     },
     {
@@ -129,6 +129,7 @@ const CompanyRegistration = () => {
           ))}
         </div>
 
+        <TypesOfCompanyReg />
         <ComparisonTable />
 
         <CompanyRegistrationInfo />

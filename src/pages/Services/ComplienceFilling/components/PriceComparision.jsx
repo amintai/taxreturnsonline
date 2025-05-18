@@ -148,6 +148,7 @@ const companyTypes = [
 const PriceComparison = () => {
   const [activeTab, setActiveTab] = useState("pvt-ltd");
 
+  console.log("companyTypes",companyTypes)
   const activeCompany = companyTypes.find(company => company.id === activeTab);
 
   return (
