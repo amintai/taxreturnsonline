@@ -7,6 +7,7 @@ import {
 import React from "react";
 import FeatureItem from "./FeatureItem";
 import { useNavigate } from "react-router-dom";
+import WhatsAppButton from "./WhatsApp";
 
 function Features() {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ function Features() {
       </div>
 
       <button onClick={() => navigate('/contact-us')} className="primary-button mt-14">Get In Touch</button>
+      <WhatsAppButton />
     </section>
   );
 }
