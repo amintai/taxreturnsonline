@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import AnnualComplienceFilling from "./pages/Services/ComplienceFilling";
 import PrivateCompany from "./pages/Services/companyRegistration/privateCompany";
 import LLP from "./pages/Services/companyRegistration/LLP";
+import WhatsAppButton from "./components/Features/WhatsApp";
 
 // Lazy load route components
 const Home = lazy(() => import("./pages/Home"));
@@ -58,6 +59,7 @@ function App() {
           <Route path="/tax-compliance/annual-complience-filling" Component={AnnualComplienceFilling} />
         </Routes>
       </Suspense>
+      <WhatsAppButton />
       <Footer />
     </>
   );
