@@ -30,6 +30,7 @@ import Features from "../components/Features";
 import Hero from "../components/Hero";
 import WhyChooseUs from "../components/WhyChoosUs";
 import ServiceGrid from "../components/Services/ServiceGrid"
+import CAExpertsSection from "../components/CAExpertSection";
 
 
 const Home = () => {
@@ -73,10 +74,12 @@ const Home = () => {
       </section>
       
       <ServiceGrid />
+      <CAExpertsSection />
       
       <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
         <WhyChooseUs />
       </section>
+
       
 
       {/* Scroll to top button */}
