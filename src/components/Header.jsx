@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ChevronDown,
+  ChevronUp,
   FileText,
   Calculator,
   Stamp,
@@ -12,6 +13,8 @@ import {
   ScrollText,
   PiggyBank,
   ArrowDownToDot,
+  Menu,
+  X,
 } from "lucide-react";
 
 const useIsMobile = () => {
@@ -95,54 +98,73 @@ const navLinks = [
       },
     ],
   },
-  // {
-  //   label: "Resources",
-  //   path: "/resources",
-  //   hasSubmenu: true,
-  //   submenu: [
-  //     {
-  //       label: "Guides",
-  //       path: "/resources/guides",
-  //       icon: GraduationCap,
-  //     },
-  //     {
-  //       label: "Reports",
-  //       path: "/resources/reports",
-  //       icon: BarChart,
-  //     },
-  //     {
-  //       label: "Templates",
-  //       path: "/resources/templates",
-  //       icon: FileSpreadsheet,
-  //     },
-  //   ],
-  // },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [hoveredMenu, setHoveredMenu] = useState(null);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [mobileActiveMenu, setMobileActiveMenu] = useState(null);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const location = useLocation();
+  const timeoutRef = useRef(null);
+  const headerRef = useRef(null);
 
+  // Close mobile menu when route changes
   useEffect(() => {
     setMobileOpen(false);
+    setMobileActiveMenu(null);
   }, [location.pathname]);
 
+  // Close menus when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setActiveMenu(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleMenuEnter = (label) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveMenu(label);
+  };
+
+  const handleMenuLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 200);
+  };
+
+  const toggleMobileSubmenu = (label) => {
+    if (mobileActiveMenu === label) {
+      setMobileActiveMenu(null);
+    } else {
+      setMobileActiveMenu(label);
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header className="sticky top-0 z-50 bg-white shadow-md" ref={headerRef}>
       <div className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Logo */}
         <div
-          className="flex flex-col items-start justify-center cursor-pointer"
+          className="flex flex-col items-start justify-center cursor-pointer group"
           onClick={() => navigate("/")}
         >
           <div className="flex items-center gap-2 md:gap-3">
             <img
               src="/images/logo.svg"
               alt="Logo"
-              className="h-10 w-10 md:h-12 md:w-12 object-contain"
+              className="h-10 w-10 md:h-12 md:w-12 object-contain transition-transform group-hover:scale-105"
             />
             <span className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
               <span className="text-green-600">TaxReturns</span>
@@ -155,26 +177,111 @@ export default function Header() {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-6 items-center">
+        <nav className="hidden md:flex items-center space-x-6 relative">
           {navLinks.map((link) => (
             <div
               key={link.label}
               className="relative"
-              onMouseEnter={() => setHoveredMenu(link.label)}
-              onMouseLeave={() => setHoveredMenu(null)}
+              onMouseEnter={() => handleMenuEnter(link.label)}
+              onMouseLeave={handleMenuLeave}
             >
-              <button className="flex items-center gap-1 font-medium text-gray-800 hover:text-blue-800">
-                {link.label} <ChevronDown size={16} />
+              <button className="flex items-center gap-1 font-medium text-gray-800 hover:text-blue-600 transition py-2 px-1 rounded-md hover:bg-gray-50">
+                {link.label}
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform ${
+                    activeMenu === link.label ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-              {hoveredMenu === link.label && (
-                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 w-64 z-50">
+
+              {link.submenu && (
+                <div
+                  className={`absolute left-0 top-full pt-1 ${
+                    activeMenu === link.label
+                      ? "opacity-100 translate-y-0 pointer-events-auto"
+                      : "opacity-0 -translate-y-2 pointer-events-none"
+                  } transition-all duration-200 ease-out`}
+                >
+                  <div className="bg-white shadow-lg rounded-md w-64 py-2 z-50 border border-gray-100">
+                    {link.submenu.map((item) => (
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition hover:text-blue-600"
+                      >
+                        <item.icon size={18} className="text-blue-500" />
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Buttons */}
+          <div className="flex items-center gap-3 ml-2">
+            <Link
+              to="/our-services/itr-filling"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition whitespace-nowrap"
+            >
+              File ITR Now
+            </Link>
+
+            <button
+              onClick={() =>
+                window.open(
+                  "https://wa.me/918866397377?text=Hi, I'd like a callback",
+                  "_blank"
+                )
+              }
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition whitespace-nowrap"
+            >
+              Talk to a CA
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden p-2 text-gray-800 rounded-md hover:bg-gray-100 transition"
+          onClick={() => setMobileOpen((prev) => !prev)}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-3 space-y-3">
+          {navLinks.map((link) => (
+            <div key={link.label} className="border-b border-gray-100 pb-3">
+              <button
+                className="flex items-center justify-between w-full font-medium text-gray-800 py-2"
+                onClick={() => toggleMobileSubmenu(link.label)}
+              >
+                <span>{link.label}</span>
+                {mobileActiveMenu === link.label ? (
+                  <ChevronUp size={18} />
+                ) : (
+                  <ChevronDown size={18} />
+                )}
+              </button>
+
+              {mobileActiveMenu === link.label && (
+                <div className="ml-3 mt-2 space-y-2 bg-gray-50 rounded-md p-2">
                   {link.submenu.map((item) => (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 text-gray-700"
+                      className="flex items-center gap-3 text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md hover:bg-gray-100"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setMobileActiveMenu(null);
+                      }}
                     >
-                      <item.icon size={16} className="text-blue-600" />
+                      <item.icon size={16} className="text-blue-500" />
                       {item.label}
                     </Link>
                   ))}
@@ -182,76 +289,29 @@ export default function Header() {
               )}
             </div>
           ))}
-          <Link
-            to="/our-services/itr-filing"
-            className="bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800"
-          >
-            File ITR Now
-          </Link>
-          <button
-            onClick={() =>
-              window.open(
-                "https://wa.me/918866397377?text=Hi, I’d like a callback",
-                "_blank"
-              )
-            }
-            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
-          >
-            Talk to a CA
-          </button>
-        </nav>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-gray-800"
-          onClick={() => setMobileOpen((prev) => !prev)}
-        >
-          {mobileOpen ? "✕" : "☰"}
-        </button>
-      </div>
+          <div className="flex flex-col gap-3 pt-2">
+            <Link
+              to="/our-services/itr-filling"
+              className="block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-md text-center font-medium"
+              onClick={() => setMobileOpen(false)}
+            >
+              File ITR Now
+            </Link>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden px-4 pb-6 space-y-4">
-          {navLinks.map((link) => (
-            <div key={link.label}>
-              <p className="font-medium text-gray-800">{link.label}</p>
-              <div className="ml-4 mt-2 space-y-2">
-                {link.submenu.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className="flex items-center gap-2 text-gray-700 hover:text-blue-800"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <item.icon size={16} className="text-blue-600" />
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-
-          <Link
-            to="/our-services/itr-filing"
-            className="block bg-blue-700 text-white px-4 py-2 rounded-md text-center"
-            onClick={() => setMobileOpen(false)}
-          >
-            File ITR Now
-          </Link>
-
-          <button
-            onClick={() => {
-              window.open(
-                "https://wa.me/918866397377?text=Hi, I’d like a callback",
-                "_blank"
-              );
-              setMobileOpen(false);
-            }}
-            className="block w-full bg-green-600 text-white px-4 py-2 rounded-md text-center"
-          >
-            Talk to a CA
-          </button>
+            <button
+              onClick={() => {
+                window.open(
+                  "https://wa.me/918866397377?text=Hi, I'd like a callback",
+                  "_blank"
+                );
+                setMobileOpen(false);
+              }}
+              className="block w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-md text-center font-medium"
+            >
+              Talk to a CA
+            </button>
+          </div>
         </div>
       )}
     </header>
