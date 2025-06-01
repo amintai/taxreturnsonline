@@ -177,18 +177,28 @@ export default function Header() {
     <header className="container mx-auto px-4 flex justify-between items-center sticky top-0 z-50 bg-white shadow-md h-20">
       {/* Logo */}
       <div
-        className="flex items-center gap-2 md:gap-4 cursor-pointer"
+        className="flex flex-col items-start justify-center cursor-pointer"
         onClick={() => navigate("/")}
       >
-        <img
-          src="/images/logo.svg"
-          alt="Logo"
-          className="h-10 w-10 md:h-12 md:w-12 object-contain"
-        />
-        <span className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
-          <span className="text-green-600">TaxReturns</span>
-          <span className="text-gray-900"> Online</span>
-        </span>
+        <div
+          className="flex flex-col justify-center cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          <div className="flex items-center gap-2 md:gap-3">
+            <img
+              src="/images/logo.svg"
+              alt="Logo"
+              className="h-10 w-10 md:h-12 md:w-12 object-contain"
+            />
+            <span className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
+              <span className="text-green-600">TaxReturns</span>
+              <span className="text-gray-900">Online</span>
+            </span>
+          </div>
+          <span className="text-[0.65rem] md:text-sm text-gray-600 ml-[52px] md:ml-[60px] lg:ml-[72px] mt-0.5 tracking-wide font-light">
+            File with Confidence. Backed by CAs.
+          </span>
+        </div>
       </div>
 
       {/* Desktop Nav */}
