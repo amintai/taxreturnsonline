@@ -20,7 +20,7 @@ const ItrReturn = () => {
 
                 <div className="text-center py-8 px-4">
                     <h1 className="text-2xl md:text-3xl font-bold mb-2">
-                        File Your Income Tax Return (ITR) Online with Ease My Tax
+                        File Your Income Tax Return (ITR) Online with Tax Returns Online
                     </h1>
                     {/* <div className="w-32 h-1 bg-blue-800 mx-auto mt-2"></div> */}
                     <div className="w-24 h-1 bg-blue-800 mx-auto mb-4"></div>

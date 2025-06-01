@@ -1,7 +1,7 @@
 function WhyChooseUs() {
   return (
     <section className="container mt-28 text-center">
-      <h2 className="text-[32px] font-bold ">Why Choose easemytax.in?</h2>
+      <h2 className="text-[32px] font-bold ">Why Choose taxreturnsonline.in?</h2>
       <p className="mt-2 max-w-xl m-auto">
         Discover why individuals and businesses trust us for expert tax
         solutions.

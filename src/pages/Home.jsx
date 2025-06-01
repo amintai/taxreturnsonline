@@ -74,7 +74,7 @@ const Home = () => {
       </section>
       
       <ServiceGrid />
-      <CAExpertsSection />
+      {/* <CAExpertsSection /> */}
       
       <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
         <WhyChooseUs />

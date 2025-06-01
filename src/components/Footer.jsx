@@ -3,12 +3,20 @@ function Footer() {
     <div className={`pt-12 pb-8 bg-[#F8F9FA]`}>
       <div className="container mb-12 text-center sm:text-left grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
         <div className="mx-auto sm:ml-0">
-          <img
-            className="cursor-pointer"
-            src="/images/logo-full.svg"
-            alt="logo"
-          />
-
+          <div
+            className="flex items-center gap-2 md:gap-4 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            <img
+              src="/images/logo.svg"
+              alt="Logo"
+              className="h-10 w-10 md:h-12 md:w-12 object-contain"
+            />
+            <span className="font-bold leading-tight tracking-tight">
+              <span className="text-green-600">TaxReturns</span>
+              <span className="text-gray-900"> Online</span>
+            </span>
+          </div>
           <div className="mt-4 flex justify-around">
             <img className="icon-button" src="images/insta-icon.svg" alt="" />
             <img className="icon-button" src="images/fb-icon.svg" alt="" />
@@ -68,7 +76,7 @@ function Footer() {
       </div>
 
       <p className="text-center mt-12 text-[#22343D]">
-        © {new Date().getFullYear()} easemytax. All Rights Reserved.
+        © {new Date().getFullYear()} taxreturnsonline. All Rights Reserved.
       </p>
     </div>
   );

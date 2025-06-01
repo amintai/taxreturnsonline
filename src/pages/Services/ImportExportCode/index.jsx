@@ -20,7 +20,7 @@ const ImportExportCode = () => {
                     </a>
                     <div className="text-center py-8 px-4">
                         <h1 className="text-2xl md:text-3xl font-bold mb-2">
-                            Apply for Import Export Code (IEC) Online with the help of Ease My Tax.
+                            Apply for Import Export Code (IEC) Online with the help of Tax Returns Online.
                         </h1>
                         <div className="w-32 h-1 bg-blue-800 mx-auto mt-2"></div>
 

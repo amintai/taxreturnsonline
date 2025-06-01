@@ -20,7 +20,7 @@ import {
   Stamp,
   ChevronDown,
   Menu,
-  X
+  X,
 } from "lucide-react";
 
 // Custom hook to detect if on mobile
@@ -176,12 +176,20 @@ export default function Header() {
   return (
     <header className="container mx-auto px-4 flex justify-between items-center sticky top-0 z-50 bg-white shadow-md h-20">
       {/* Logo */}
-      <img
-        src="/images/logo-full.svg"
-        alt="Logo"
-        className="cursor-pointer w-36 md:w-44"
+      <div
+        className="flex items-center gap-2 md:gap-4 cursor-pointer"
         onClick={() => navigate("/")}
-      />
+      >
+        <img
+          src="/images/logo.svg"
+          alt="Logo"
+          className="h-10 w-10 md:h-12 md:w-12 object-contain"
+        />
+        <span className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
+          <span className="text-green-600">TaxReturns</span>
+          <span className="text-gray-900"> Online</span>
+        </span>
+      </div>
 
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center space-x-4 lg:space-x-6">

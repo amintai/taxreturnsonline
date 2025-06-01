@@ -8,7 +8,7 @@ const services = [
     color: 'bg-yellow-500',
     image: '/images/services/gst-registration.png',
     description:
-      'Become a Govt. registered taxpayer in India. GST expert of Ease My Tax will help you at every stage. Apply for GSTIN from any states in India.',
+      'Become a Govt. registered taxpayer in India. GST expert of Tax Returns Online will help you at every stage. Apply for GSTIN from any states in India.',
   },
   {
     title: 'GST Return Filing',
@@ -24,7 +24,7 @@ const services = [
     color: 'bg-red-500',
     image: '/images/services/gst-cancel.png',
     description:
-      'Your GST registration can be cancelled at anytime due to various reasons. You can easily cancel a GST registration online through Ease My Tax.',
+      'Your GST registration can be cancelled at anytime due to various reasons. You can easily cancel a GST registration online through Tax Returns Online.',
   },
   {
     title: 'GST Modification Update',
@@ -32,7 +32,7 @@ const services = [
     color: 'bg-blue-800',
     image: '/images/services/gst-modification.jpg',
     description:
-      'Ease My Tax will help you fulfill all the formalities regarding the GST registration and amendment of GST registration.',
+      'Tax Returns Online will help you fulfill all the formalities regarding the GST registration and amendment of GST registration.',
   },
   {
     title: 'GST NIL Return Filing',

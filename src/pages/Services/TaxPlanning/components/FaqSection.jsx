@@ -180,7 +180,7 @@ const FaqSection = ({
                             onClick={() => toggleAccordion('benefits')}
                             className={`w-full p-4 flex justify-between items-center text-left ${expandedSection === 'benefits' ? 'bg-blue-800 text-white' : 'bg-blue-800 text-white'} rounded-md`}
                         >
-                            <span className="font-medium">Benefits of availing Tax Consultancy from Ease My Tax™</span>
+                            <span className="font-medium">Benefits of availing Tax Consultancy from Tax Returns Online™</span>
                             {expandedSection === 'benefits' ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                         </Button>
                         {expandedSection === 'benefits' && (
