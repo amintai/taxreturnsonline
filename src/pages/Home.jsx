@@ -5,6 +5,7 @@ import Features from "../components/Features";
 import Hero from "../components/Hero";
 import WhyChooseUs from "../components/WhyChoosUs";
 import ServiceGrid from "../components/Services/ServiceGrid";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const [showScrollTop, setShowScrollTop] = React.useState(false);
@@ -31,6 +32,15 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>File ITR Online in India - TaxReturnsOnline</title>
+        <meta
+          name="description"
+          content="Easily file your income tax returns with expert CAs. Fast, secure, and affordable ITR services."
+        />
+        <link rel="canonical" href="https://www.taxreturnsonline.in/" />
+      </Helmet>
+
       <section className="bg-gradient-to-b from-blue-50 to-white">
         <Hero />
       </section>

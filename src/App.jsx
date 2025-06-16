@@ -11,6 +11,7 @@ import PrivateCompany from "./pages/Services/companyRegistration/privateCompany"
 import LLP from "./pages/Services/companyRegistration/LLP";
 import WhatsAppButton from "./components/Features/WhatsApp";
 import ScrollProgressBar from "./components/ScrollEventBar";
+import { Helmet } from "react-helmet";
 
 // Lazy load route components
 const Home = lazy(() => import("./pages/Home"));
@@ -32,6 +33,13 @@ const ContactUs = lazy(() => import("./pages/contactUs"));
 function App() {
   return (
     <>
+      <Helmet>
+        <title>TaxReturnsOnline - CA-assisted ITR Filing</title>
+        <meta
+          name="description"
+          content="Trusted online tax filing with expert CA support. File your returns easily today."
+        />
+      </Helmet>
       {/* <ScrollProgressBar /> */}
       <Analytics />
       <CustomMarquee />

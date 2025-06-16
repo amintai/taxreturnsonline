@@ -5,7 +5,6 @@ import {
   PhoneCall,
   Mail,
   User,
-  Languages,
 } from "lucide-react";
 
 const pricingData = [
@@ -53,20 +52,17 @@ const pricingData = [
   },
 ];
 
+const getOriginalPrice = (discountedPrice) => {
+  const numeric = Number(discountedPrice.replace(/[^\d]/g, ""));
+  return `₹${Math.round(numeric * 1.2)}`;
+};
+
 const FeatureItem = ({ text }) => {
   const getIcon = (text) => {
-    if (text.includes("Call"))
-      return <PhoneCall className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("CA"))
-      return <User className="w-4 h-4 text-green-500 mr-2" />;
-    if (
-      text.includes("Declaration") ||
-      text.includes("Filing") ||
-      text.includes("Computation")
-    )
-      return <CalendarCheck className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("Support"))
-      return <Mail className="w-4 h-4 text-green-500 mr-2" />;
+    if (text.includes("Call")) return <PhoneCall className="w-4 h-4 text-green-500 mr-2" />;
+    if (text.includes("CA") || text.includes("Expert")) return <User className="w-4 h-4 text-green-500 mr-2" />;
+    if (text.includes("Computation") || text.includes("Filing")) return <CalendarCheck className="w-4 h-4 text-green-500 mr-2" />;
+    if (text.includes("Support")) return <Mail className="w-4 h-4 text-green-500 mr-2" />;
     return <Check className="w-4 h-4 text-green-500 mr-2" />;
   };
 
@@ -79,10 +75,6 @@ const FeatureItem = ({ text }) => {
 };
 
 const ITRFilingPackages = () => {
-  const getOriginalPrice = (discountedPrice) => {
-    const numeric = Number(discountedPrice.replace(/[^\d]/g, ""));
-    return `₹${Math.round(numeric * 1.2)}`;
-  };
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <div className="container mx-auto">
@@ -93,55 +85,63 @@ const ITRFilingPackages = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pricingData.map((plan, index) => (
-            <div
-              key={index}
-              className={`flex flex-col justify-between overflow-hidden rounded-lg ${
-                plan.highlight
-                  ? "bg-white text-gray-800"
-                  : "bg-gray-100/95 text-gray-800"
-              }`}
-            >
-              {/* Header */}
-              <div className="relative text-center py-6 px-4 bg-gray-100">
-                <h3 className="text-xl font-semibold mb-2">{plan.tier}</h3>
+          {pricingData.map((plan, index) => {
+            const message = `Hello, I’m interested in the '${plan.tier}' ITR Filing plan priced at ${plan.price}. Please guide me with the next steps.`;
+            const whatsappURL = `https://wa.me/918866397377?text=${encodeURIComponent(message)}`;
 
-                {/* Discount Badge */}
-                <span className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                  20% OFF
-                </span>
-                <div className="flex flex-col items-center">
-                  <span className="text-base line-through text-gray-500">
-                    {getOriginalPrice(plan.price)}
+            return (
+              <a
+                key={index}
+                href={whatsappURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex flex-col justify-between overflow-hidden rounded-lg cursor-pointer transition-transform duration-200 hover:scale-[1.02] ${
+                  plan.highlight
+                    ? "bg-white text-gray-800"
+                    : "bg-gray-100/95 text-gray-800"
+                }`}
+              >
+                {/* Header with Discount */}
+                <div className="relative text-center py-6 px-4 bg-gray-100">
+                  <h3 className="text-xl font-semibold mb-2">{plan.tier}</h3>
+                  <span className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    20% OFF
                   </span>
-                  <span className="text-3xl font-bold text-green-600">
-                    {plan.price}
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-grow p-6 flex flex-col">
-                {plan.returnFiling && (
-                  <div className="mb-4 font-medium text-center">
-                    {plan.returnFiling.text}
+                  <div className="flex flex-col items-center">
+                    <span className="text-base line-through text-gray-500">
+                      {getOriginalPrice(plan.price)}
+                    </span>
+                    <span className="text-3xl font-bold text-green-600">
+                      {plan.price}
+                    </span>
                   </div>
-                )}
-
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, idx) => (
-                    <FeatureItem key={idx} text={feature} />
-                  ))}
-                </ul>
-
-                <div className="mt-auto">
-                  <button className="w-full py-3 rounded-md bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
-                    File ITR Now
-                  </button>
                 </div>
-              </div>
-            </div>
-          ))}
+
+                {/* Features */}
+                <div className="flex-grow p-6 flex flex-col">
+                  {plan.returnFiling && (
+                    <div className="mb-4 font-medium text-center">
+                      {plan.returnFiling.text}
+                    </div>
+                  )}
+                  <ul className="space-y-2 mb-6">
+                    {plan.features.map((feature, idx) => (
+                      <FeatureItem key={idx} text={feature} />
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto">
+                    <button
+                      type="button"
+                      className="w-full py-3 rounded-md bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
+                    >
+                      File ITR Now
+                    </button>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
