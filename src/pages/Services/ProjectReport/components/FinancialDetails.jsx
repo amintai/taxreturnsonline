@@ -84,7 +84,7 @@ const FinancialDetails = () => {
           </div>
           
           <p className="text-gray-800 mt-6">
-            If you want to avoid the hazards of preparing a Project Report, contact us. You may make mistakes or do not have the technical expertise to form a Project Report. So, contact us and prepare it from an experienced CA/CS of Online Legal India.
+            If you want to avoid the hazards of preparing a Project Report, contact us. You may make mistakes or do not have the technical expertise to form a Project Report. So, contact us and prepare it from an experienced CA/CS of Tax Returns Online.
           </p>
         </div>
       </div>

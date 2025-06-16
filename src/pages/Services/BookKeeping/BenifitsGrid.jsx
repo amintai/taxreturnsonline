@@ -27,7 +27,7 @@ const BenefitsGrid = () => {
     <section className="py-12 bg-white">
       <div className="container mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-semibold mb-2">
-          Benefits of Managing Bookkeeping from Online Legal India
+          Benefits of Managing Bookkeeping from Tax Returns Online
         </h2>
         <div className="w-20 h-1 bg-blue-800 mx-auto mb-8 rounded"></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">

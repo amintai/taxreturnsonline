@@ -44,7 +44,7 @@ const TypesOfCompanyReg = () => {
       id: 6,
       title: "Business Registration License",
       description:
-        "Register and get your license with Online Legal India to establish your business legally and operate within the framework of the law.",
+        "Register and get your license with Tax Returns Online to establish your business legally and operate within the framework of the law.",
       icon: "📝",
     },
   ];

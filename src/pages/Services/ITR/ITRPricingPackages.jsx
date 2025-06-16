@@ -10,76 +10,62 @@ import {
 
 const pricingData = [
   {
-    tier: "Start Up",
-    price: "Starting From 1499*",
+    tier: "Salaried Individual",
+    price: "₹1199",
     features: [
-      "Application filing for GSTIN",
-      "Generate ARN & TRN number",
+      "Income from Salary",
+      "Form 16 based Filing",
       "Call, Chat, Email Support",
-      "Personally assigned GST Expert",
-      "Consultation Available in 3 Languages including English",
-    ],
-    highlight: false,
-    returnFiling: null,
-  },
-  {
-    tier: "Basic",
-    price: "Starting From 2999*",
-    features: [
-      "GST Registration absolutely FREE",
-      "Call, Chat, Email Support",
-      "Personally assigned GST Expert",
-      "Consultation Available in 3 Languages including English",
+      "Assigned CA for Filing",
     ],
     highlight: true,
     returnFiling: {
-      months: 3,
-      text: "GST Return Filing for 3 Months",
+      text: "Basic ITR Filing for Salaried Employee",
     },
   },
   {
-    tier: "Standard",
-    price: "Starting From 4999*",
+    tier: "Capital Gain ITR",
+    price: "₹2499",
     features: [
-      "GST Registration absolutely FREE",
+      "Includes Stocks, Mutual Funds, Property Sales",
+      "Capital Gain Computation",
       "Call, Chat, Email Support",
-      "Personally assigned GST Expert",
-      "Consultation Available in 3 Languages including English",
+      "Assigned CA for Assistance",
     ],
     highlight: true,
     returnFiling: {
-      months: 6,
-      text: "GST Return Filing for 6 Months",
+      text: "Capital Gains ITR with Investment Declarations",
     },
   },
   {
-    tier: "Premium",
-    price: "Starting From 7999*",
+    tier: "Business ITR",
+    price: "₹2999",
     features: [
-      "GST Registration absolutely FREE",
+      "Applicable for Freelancers, Proprietors, and Traders",
+      "Books of Accounts Assistance",
       "Call, Chat, Email Support",
-      "Personally assigned GST Expert",
-      "Consultation Available in 3 Languages including English",
+      "Expert CA Support",
     ],
     highlight: true,
     returnFiling: {
-      months: 12,
-      text: "GST Return Filing for 12 Months",
+      text: "ITR Filing with P&L and Balance Sheet",
     },
   },
 ];
 
 const FeatureItem = ({ text }) => {
   const getIcon = (text) => {
-    if (text.includes("Call, Chat, Email"))
+    if (text.includes("Call"))
       return <PhoneCall className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("assigned"))
+    if (text.includes("CA"))
       return <User className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("Consultation"))
-      return <Languages className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("Return Filing"))
+    if (
+      text.includes("Declaration") ||
+      text.includes("Filing") ||
+      text.includes("Computation")
+    )
       return <CalendarCheck className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("Email"))
+    if (text.includes("Support"))
       return <Mail className="w-4 h-4 text-green-500 mr-2" />;
     return <Check className="w-4 h-4 text-green-500 mr-2" />;
   };
@@ -92,17 +78,21 @@ const FeatureItem = ({ text }) => {
   );
 };
 
-const PricingPackages = () => {
+const ITRFilingPackages = () => {
+  const getOriginalPrice = (discountedPrice) => {
+    const numeric = Number(discountedPrice.replace(/[^\d]/g, ""));
+    return `₹${Math.round(numeric * 1.2)}`;
+  };
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">GST Registration Packages</h2>
-          <h3 className="text-xl mb-4">Professional Fees</h3>
+          <h2 className="text-3xl font-bold mb-2">ITR Filing Packages</h2>
+          <h3 className="text-xl mb-4">Affordable & Expert-Led Tax Filing</h3>
           <div className="w-24 h-1 bg-green-500 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingData.map((plan, index) => (
             <div
               key={index}
@@ -113,9 +103,17 @@ const PricingPackages = () => {
               }`}
             >
               {/* Header */}
-              <div className="text-center py-6 px-4 bg-gray-100">
-                <h3 className="text-xl font-semibold">{plan.tier}</h3>
-                <div className="mt-2">
+              <div className="relative text-center py-6 px-4 bg-gray-100">
+                <h3 className="text-xl font-semibold mb-2">{plan.tier}</h3>
+
+                {/* Discount Badge */}
+                <span className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  20% OFF
+                </span>
+                <div className="flex flex-col items-center">
+                  <span className="text-base line-through text-gray-500">
+                    {getOriginalPrice(plan.price)}
+                  </span>
                   <span className="text-3xl font-bold text-green-600">
                     {plan.price}
                   </span>
@@ -138,7 +136,7 @@ const PricingPackages = () => {
 
                 <div className="mt-auto">
                   <button className="w-full py-3 rounded-md bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
-                    Connect Now
+                    File ITR Now
                   </button>
                 </div>
               </div>
@@ -150,4 +148,4 @@ const PricingPackages = () => {
   );
 };
 
-export default PricingPackages;
+export default ITRFilingPackages;

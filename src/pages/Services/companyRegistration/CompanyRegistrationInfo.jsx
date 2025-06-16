@@ -4,7 +4,7 @@ const CompanyRegistrationInfo = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 bg-white rounded-lg shadow-md">
       <h2 className="text-3xl font-bold text-center mb-6">
-        How Online Legal India helps you in the process of registering a new company?
+        How Tax Returns Online helps you in the process of registering a new company?
       </h2>
       <div className="relative mb-8">
         <div className="h-1 bg-green-500 w-32 mx-auto"></div>
@@ -35,7 +35,7 @@ const CompanyRegistrationInfo = () => {
         </ul>
         
         <p>
-          All the above-mentioned services are provided by Online Legal India and the charges for the process is very nominal. We guide our clients throughout the above-mentioned process. You can apply online for the process and we will provide you with all the necessary help that you need for registration.
+          All the above-mentioned services are provided by Tax Returns Online and the charges for the process is very nominal. We guide our clients throughout the above-mentioned process. You can apply online for the process and we will provide you with all the necessary help that you need for registration.
         </p>
         
         <p>

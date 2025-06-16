@@ -16,7 +16,7 @@ const PrivateCompany = () => {
         <div className="w-24 h-1 bg-blue-800 mx-auto mb-4"></div>
         <p className="text-sm md:text-base max-w-4xl mx-auto text-gray-700">
           Register your startup company as private limited with Online Legal
-          India™ at the lowest Fees. Online Legal India is an MCA (Ministry of
+          India™ at the lowest Fees. Tax Returns Online is an MCA (Ministry of
           Corporate Affairs) & MSME registered company in India. Our experienced
           (10 Yrs+) CA/CS will draft & complete all the documentations on the
           same day.

@@ -56,7 +56,7 @@ const services = [
     color: 'bg-indigo-600',
     image: '/images/services/gst-lut-filing.jpg',
     description:
-      'Launch your Export Business in the Foreign Market with GST LUT Filing from our Specialised Taxation Team at Online Legal India™ | Get Approval Quickly.',
+      'Launch your Export Business in the Foreign Market with GST LUT Filing from our Specialised Taxation Team at Tax Returns Online™ | Get Approval Quickly.',
   },
   {
     title: 'GST E-WayBills',

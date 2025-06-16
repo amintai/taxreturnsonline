@@ -85,7 +85,7 @@ const CompanyRegistration = () => {
             so businessmen need to select the right type of company for their
             business. Companies in India are controlled under the Ministry of
             Corporate affairs. Registering a company is effortless through
-            Online Legal India, as it is processed completely online. At least
+            Tax Returns Online, as it is processed completely online. At least
             two members are needed to proceed as directors and shareholders. To
             register a company one needs the Director’s PAN card, address proof,
             and the bank account details with address proof of the registered

@@ -26,7 +26,7 @@ const ImportExportCode = () => {
 
                         <div className="w-24 h-1 bg-iec-green mx-auto mb-4"></div>
                         <p className="text-sm md:text-base max-w-4xl mx-auto text-gray-700">
-                            Register your import export business under Directorate General of Foreign Trade, Ministry of Commerce and Industry, Govt. of India. IEC export of Online Legal India™ will file with the DGFT office on your behalf.
+                            Register your import export business under Directorate General of Foreign Trade, Ministry of Commerce and Industry, Govt. of India. IEC export of Tax Returns Online™ will file with the DGFT office on your behalf.
                         </p>
                     </div>
 

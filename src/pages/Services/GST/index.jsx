@@ -52,7 +52,7 @@ const GstRegistration = () => {
             </p>
             <p className="mt-4 text-sm md:text-base max-w-4xl mx-auto text-gray-700">
               It typically takes 4 to 6 working days to register for GST. In 3
-              simple steps, Team Online Legal India can assist you in obtaining
+              simple steps, Team Tax Returns Online can assist you in obtaining
               GST registration more quickly.
             </p>
           </div>

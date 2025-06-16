@@ -83,7 +83,7 @@ const SideForm = () => {
 
           <div className="bg-green-600 p-4 rounded-md mb-4">
             <h3 className="text-lg font-semibold text-white mb-2">
-              Benefits of Filing from Online Legal India™
+              Benefits of Filing from Tax Returns Online™
             </h3>
           </div>
           <ul className="list-disc ml-5 mb-6 space-y-1 text-gray-700">
