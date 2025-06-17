@@ -9,11 +9,6 @@ const HeroSection = () => {
             <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
                 Start your business journey with our complete company registration package. We handle incorporation, compliance setup, and all necessary registrations.
             </p>
-
-            <div className="bg-orange-500 text-white p-3 sm:p-4 rounded-md inline-block">
-                <h3 className="font-bold text-lg sm:text-xl mb-1">Avail Consultations from our Experienced CAs</h3>
-                <p className="text-base sm:text-lg">@Rs 999! *</p>
-            </div>
         </div>
     )
 }
