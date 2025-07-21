@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Features = () => {
   const navigate = useNavigate();
 
-  const phoneNumber = "918866397377"; // Replace with your WhatsApp number
+  const phoneNumber = "919512397377"; // Replace with your WhatsApp number
   const message = "Hi, I need help with tax filing!";
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message

@@ -36,12 +36,12 @@ const FormSection = ({
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="email" className="block text-gray-700 mb-2">Email <span className="text-red-500">*</span></label>
+                            <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
-                                required
+                                // required
                                 value={formData.email}
                                 onChange={handleInputChange}
                                 placeholder="Your Email Address"

@@ -8,12 +8,12 @@ const features = [
   },
   {
     icon: <Users className="text-blue-800" size={24} />,
-    title: "1 Lakh+ Happy Customers Across India"
+    title: "1000s Happy Customers Across India"
   },
-  {
-    icon: <Award className="text-blue-800" size={24} />,
-    title: "ISO 9001: 2015 Certified"
-  },
+  // {
+  //   icon: <Award className="text-blue-800" size={24} />,
+  //   title: "ISO 9001: 2015 Certified"
+  // },
   {
     icon: <Shield className="text-blue-800" size={24} />,
     title: "Personal Data Security & Trust"

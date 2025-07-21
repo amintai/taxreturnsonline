@@ -52,9 +52,9 @@ const Home = () => {
         <Features />
       </section>
 
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      {/* <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <Benefits />
-      </section>
+      </section> */}
 
       {/* <CAExpertsSection /> */}
 

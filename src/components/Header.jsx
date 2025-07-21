@@ -232,7 +232,7 @@ export default function Header() {
             <button
               onClick={() =>
                 window.open(
-                  "https://wa.me/918866397377?text=Hi, I'd like a callback",
+                  "https://wa.me/919512397377?text=Hi, I'd like a callback",
                   "_blank"
                 )
               }
@@ -302,7 +302,7 @@ export default function Header() {
             <button
               onClick={() => {
                 window.open(
-                  "https://wa.me/918866397377?text=Hi, I'd like a callback",
+                  "https://wa.me/919512397377?text=Hi, I'd like a callback",
                   "_blank"
                 );
                 setMobileOpen(false);

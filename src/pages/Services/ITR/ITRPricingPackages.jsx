@@ -87,7 +87,7 @@ const ITRFilingPackages = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingData.map((plan, index) => {
             const message = `Hello, I’m interested in the '${plan.tier}' ITR Filing plan priced at ${plan.price}. Please guide me with the next steps.`;
-            const whatsappURL = `https://wa.me/918866397377?text=${encodeURIComponent(message)}`;
+            const whatsappURL = `https://wa.me/919512397377?text=${encodeURIComponent(message)}`;
 
             return (
               <a

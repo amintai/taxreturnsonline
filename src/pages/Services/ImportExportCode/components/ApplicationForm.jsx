@@ -110,7 +110,7 @@ const ApplicationForm = () => {
 
         <div>
           <label htmlFor="email" className="block mb-1 text-sm font-medium">
-            Email Address <span className="text-red-500">*</span>
+            Email Address
           </label>
           <input
             id="email"
@@ -119,7 +119,7 @@ const ApplicationForm = () => {
             placeholder="Your Email Address"
             value={formData.email}
             onChange={handleChange}
-            required
+            // required
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-iec-green"
           />
         </div>

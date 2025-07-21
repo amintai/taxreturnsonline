@@ -169,13 +169,13 @@ const SideForm = () => {
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Email <span className="text-red-500">*</span>
+                Email
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                required
+                // required
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Your Email Address"

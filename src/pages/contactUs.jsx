@@ -96,13 +96,13 @@ const ContactUs = () => {
 
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 mb-2">
-            Email <span className="text-red-500">*</span>
+            Email
           </label>
           <input
             type="email"
             id="email"
             name="email"
-            required
+            // required
             value={formData.email}
             onChange={handleChange}
             placeholder="you@example.com"
@@ -112,12 +112,13 @@ const ContactUs = () => {
 
         <div className="mb-4">
           <label htmlFor="mobile" className="block text-gray-700 mb-2">
-            Mobile
+            Mobile <span className="text-red-500">*</span>
           </label>
           <input
             type="tel"
             id="mobile"
             name="mobile"
+            required
             value={formData.mobile}
             onChange={handleChange}
             placeholder="Phone Number"

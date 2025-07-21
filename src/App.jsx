@@ -6,11 +6,7 @@ import Header from "./components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
-import AnnualComplienceFilling from "./pages/Services/ComplienceFilling";
-import PrivateCompany from "./pages/Services/companyRegistration/privateCompany";
-import LLP from "./pages/Services/companyRegistration/LLP";
 import WhatsAppButton from "./components/Features/WhatsApp";
-import ScrollProgressBar from "./components/ScrollEventBar";
 import { Helmet } from "react-helmet";
 
 // Lazy load route components
@@ -29,6 +25,15 @@ const ProjectReport = lazy(() => import("./pages/Services/ProjectReport"));
 const ItrReturn = lazy(() => import("./pages/Services/ITR"));
 const Acconting = lazy(() => import("./pages/Services/Accounting"));
 const ContactUs = lazy(() => import("./pages/contactUs"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const AnnualComplienceFilling = lazy(() =>
+  import("./pages/Services/ComplienceFilling")
+);
+const PrivateCompany = lazy(() =>
+  import("./pages/Services/companyRegistration/privateCompany")
+);
+const LLP = lazy(() => import("./pages/Services/companyRegistration/LLP"));
+const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 
 function App() {
   return (
@@ -103,6 +108,23 @@ function App() {
             path="/tax-compliance/annual-complience-filling"
             Component={AnnualComplienceFilling}
           />
+
+          <Route path="/about-us" Component={AboutUs} />
+          <Route path="/terms-of-use" Component={TermsOfUse} />
+          <Route
+            path="/privacy-policy"
+            Component={lazy(() => import("./pages/PrivacyPolicy"))}
+          />
+          <Route
+            path="/disclaimer"
+            Component={lazy(() => import("./pages/Disclaimer"))}
+          />
+
+          <Route path="/terms-and-conditions" Component={AboutUs} />
+
+          <Route path="*" Component={Home} />
+
+
         </Routes>
       </Suspense>
       <WhatsAppButton />

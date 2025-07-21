@@ -22,11 +22,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-start gap-2">
               <Check className="text-orange-500 mt-1 flex-shrink-0" />
-              <span>ISO 9001:2015 Certified</span>
-            </div>
-            <div className="flex items-start gap-2">
-              <Check className="text-orange-500 mt-1 flex-shrink-0" />
-              <span>1 Lakh+ Satisfied Clients</span>
+              <span>1000s Satisfied Clients</span>
             </div>
             <div className="flex items-start gap-2">
               <Check className="text-orange-500 mt-1 flex-shrink-0" />
