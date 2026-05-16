@@ -44,6 +44,20 @@ function App() {
           name="description"
           content="Trusted online tax filing with expert CA support. File your returns easily today."
         />
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="TaxReturnsOnline" />
+        <meta property="og:title" content="TaxReturnsOnline - CA-assisted ITR Filing" />
+        <meta property="og:description" content="Trusted online tax filing with expert CA support. File your returns easily today." />
+        <meta property="og:url" content="https://www.taxreturnsonline.in/" />
+        <meta property="og:image" content="https://www.taxreturnsonline.in/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TaxReturnsOnline - CA-assisted ITR Filing" />
+        <meta name="twitter:description" content="Trusted online tax filing with expert CA support. File your returns easily today." />
+        <meta name="twitter:image" content="https://www.taxreturnsonline.in/og-image.svg" />
       </Helmet>
       {/* <ScrollProgressBar /> */}
       <Analytics />

@@ -10,7 +10,8 @@ import {
 const pricingData = [
   {
     tier: "Salaried Individual",
-    price: "₹1199",
+    price: "₹999",
+    originalPrice: "₹1249",
     features: [
       "Income from Salary",
       "Form 16 based Filing",
@@ -105,11 +106,11 @@ const ITRFilingPackages = () => {
                 <div className="relative text-center py-6 px-4 bg-gray-100">
                   <h3 className="text-xl font-semibold mb-2">{plan.tier}</h3>
                   <span className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    20% OFF
+                    {plan.originalPrice ? "17% OFF" : "20% OFF"}
                   </span>
                   <div className="flex flex-col items-center">
                     <span className="text-base line-through text-gray-500">
-                      {getOriginalPrice(plan.price)}
+                      {plan.originalPrice ?? getOriginalPrice(plan.price)}
                     </span>
                     <span className="text-3xl font-bold text-green-600">
                       {plan.price}

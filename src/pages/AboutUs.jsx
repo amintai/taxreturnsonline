@@ -71,11 +71,11 @@ const AboutUs = () => {
             </p>
             <p className="text-gray-700 leading-relaxed">
               Together, we bring not only deep knowledge of finance but also a
-              personal touch to every client interaction—because for us, it’s
+              personal touch to every client interactionbecause for us, it’s
               not just about numbers, it’s about people.
             </p>
             <p className="text-gray-700 leading-relaxed font-medium">
-              Let’s grow together—professionally and financially.
+              Let’s grow togetherprofessionally and financially.
             </p>
           </div>
         </div>

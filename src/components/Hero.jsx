@@ -9,11 +9,9 @@ const Hero = () => {
     { label: "Affordable", icon: Wallet },
   ];
 
-  const phoneNumber = "919512397377"; // Replace with your WhatsApp number
+  const phoneNumber = "919512397377";
   const message = "Hi, I need help with tax filing!";
-  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-    message
-  )}`;
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   const navigate = useNavigate();
 
@@ -47,12 +45,12 @@ const Hero = () => {
             <a
               href={whatsappURL}
               target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 border border-green-600 text-green-600 hover:bg-green-50 px-6 py-3 rounded-lg text-base font-medium transition-all"
             >
               Contact on WhatsApp
             </a>
           </div>
-
         </div>
 
         <div className="w-full md:w-1/2">
@@ -73,9 +71,7 @@ const Hero = () => {
           {expertiseData.map(({ label, icon: Icon }, i) => (
             <div key={i} className="flex flex-col items-center text-center">
               <Icon className="w-8 h-8 text-green-600 mb-2" />
-              <div className="text-lg font-semibold text-green-700">
-                {label}
-              </div>
+              <div className="text-lg font-semibold text-green-700">{label}</div>
               <p className="text-gray-600 text-sm">Tax Solutions</p>
             </div>
           ))}

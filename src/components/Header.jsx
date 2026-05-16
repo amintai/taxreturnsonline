@@ -162,16 +162,17 @@ export default function Header() {
         >
           <div className="flex items-center gap-2 md:gap-3">
             <img
-              src="/images/logo.svg"
-              alt="Logo"
-              className="h-10 w-10 md:h-12 md:w-12 object-contain transition-transform group-hover:scale-105"
+              src="/images/tro-icon.svg"
+              alt=""
+              aria-hidden="true"
+              className="h-9 md:h-11 w-auto transition-transform group-hover:scale-105"
             />
-            <span className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
-              <span className="text-green-600">TaxReturns</span>
-              <span className="text-gray-900">Online</span>
+            <span className="text-xl md:text-2xl font-bold leading-tight tracking-tight">
+              <span className="text-green-500">TaxReturns</span>
+              <span className="text-[#173A56]">Online</span>
             </span>
           </div>
-          <span className="text-[0.65rem] md:text-sm text-gray-600 ml-[52px] md:ml-[60px] lg:ml-[72px] mt-0.5 tracking-wide font-light">
+          <span className="text-[0.6rem] md:text-xs text-gray-500 ml-[44px] md:ml-[52px] mt-0.5 tracking-wide font-light">
             File with Confidence. Backed by CAs.
           </span>
         </div>
