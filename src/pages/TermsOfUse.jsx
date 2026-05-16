@@ -1,136 +1,101 @@
-import { ArrowUp, FileText } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { FileText } from 'lucide-react';
+import { Helmet } from 'react-helmet';
+import LegalPageLayout from '../components/LegalPageLayout';
 
-const TermsOfUse = () => {
-  const [showScrollTop, setShowScrollTop] = useState(false);
+const sections = [
+  {
+    title: '1. Acceptance of Terms',
+    content: 'By accessing or using TaxReturnsOnline, you agree to comply with and be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, please do not use our website or services.',
+  },
+  {
+    title: '2. Scope of Services',
+    content: 'TaxReturnsOnline provides CA-assisted online tax filing, GST compliance, company registration, bookkeeping, and related financial services. All filings and submissions are based entirely on the information and documents you provide. It is your sole responsibility to ensure the accuracy, completeness, and timeliness of all data submitted to us.',
+  },
+  {
+    title: '3. User Responsibilities',
+    bullets: [
+      'Provide accurate, complete, and up-to-date personal and financial information.',
+      'Ensure all documents shared with us are genuine and legally valid.',
+      'Do not use the site for unlawful purposes or transmit harmful, fraudulent, or misleading content.',
+      'Keep your contact details and communication channels updated.',
+      'Respond promptly to requests for additional information or clarification.',
+    ],
+  },
+  {
+    title: '4. Service Fees & Payments',
+    content: 'Service fees are communicated upfront before work begins. Fees are non-refundable once the filing or service has been initiated, except in cases of error on our part. Government fees, if any, are charged separately and are not included in our professional fees unless explicitly stated.',
+  },
+  {
+    title: '5. Limitation of Liability',
+    content: 'We make every effort to ensure accuracy and timely filing. However, TaxReturnsOnline is not liable for:',
+    bullets: [
+      'Errors, penalties, or notices resulting from incorrect or incomplete information provided by you.',
+      'Delays caused by government portal downtime or technical issues beyond our control.',
+      'Consequences arising from changes in tax laws or regulations after your filing.',
+    ],
+  },
+  {
+    title: '6. Intellectual Property',
+    content: 'All content on this website  including logos, text, graphics, and service descriptions  is owned by TaxReturnsOnline and protected under applicable Indian intellectual property laws. You may not reproduce, distribute, or use our content without prior written permission.',
+  },
+  {
+    title: '7. Confidentiality',
+    content: 'We treat all client information as strictly confidential. Our team members are bound by confidentiality obligations. We will not disclose your information to third parties except as required for service delivery or by law.',
+  },
+  {
+    title: '8. Governing Law',
+    content: 'These Terms of Use are governed by and construed in accordance with the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Ahmedabad, Gujarat.',
+  },
+  {
+    title: '9. Amendments',
+    content: 'We reserve the right to update these Terms of Use at any time. Changes will be effective upon posting on this page. Continued use of our services after any changes constitutes your acceptance of the revised terms.',
+  },
+];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const TermsOfUse = () => (
+  <>
+    <Helmet>
+      <title>Terms of Use  TaxReturnsOnline</title>
+      <meta name="description" content="Read the Terms of Use for TaxReturnsOnline to understand your rights and responsibilities when using our services." />
+      <link rel="canonical" href="https://www.taxreturnsonline.in/terms-of-use" />
+    </Helmet>
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    <LegalPageLayout
+      icon={FileText}
+      iconBg="bg-blue-100"
+      iconColor="text-blue-600"
+      title="Terms of Use"
+      subtitle="Understand your rights and responsibilities when using our CA-assisted tax and compliance services."
+      lastUpdated="May 2025"
+      activePath="/terms-of-use"
+    >
+      <div className="space-y-8">
+        <p className="text-gray-500 text-sm leading-relaxed border-l-4 border-[#005C9D] pl-4">
+          Please read these terms carefully. By using TaxReturnsOnline, you enter into a binding agreement with us. These terms govern your use of our website and all services we provide.
+        </p>
 
-  return (
-    <>
-      <Helmet>
-        <title>Terms of Use - TaxReturnsOnline</title>
-        <meta
-          name="description"
-          content="Read the Terms of Use for TaxReturnsOnline to understand your rights and responsibilities when using our online tax filing services."
-        />
-        <link
-          rel="canonical"
-          href="https://www.taxreturnsonline.in/terms-of-use"
-        />
-      </Helmet>
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-50 to-white py-16">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse"></div>
-
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex justify-center mb-6">
-            <div className="p-4 bg-green-100 rounded-full shadow-md">
-              <FileText className="h-10 w-10 text-green-700" />
-            </div>
+        {sections.map(({ title, content, bullets }) => (
+          <div key={title}>
+            <h2 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-5 bg-[#005C9D] rounded-full inline-block" />
+              {title}
+            </h2>
+            {content && <p className="text-gray-600 leading-relaxed text-sm mb-3">{content}</p>}
+            {bullets && (
+              <ul className="space-y-2">
+                {bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2 text-sm text-gray-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
-            Terms of Use
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Understand your rights and responsibilities while using our online tax filing services.
-          </p>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="bg-gray-50 py-12">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 space-y-8">
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              1. Acceptance of Terms
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              By accessing or using <strong>TaxReturnsOnline</strong>, you agree to comply with and be bound by these Terms of Use.
-              If you do not agree, please do not use our website or services.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              2. Scope of Services
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              TaxReturnsOnline provides online tax filing assistance, compliance support, and related services.
-              All filings are based on information you provide. It is your responsibility to ensure the accuracy and completeness of data submitted.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              3. User Responsibilities
-            </h2>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Provide accurate and complete personal and financial information.</li>
-              <li>Do not use the site for unlawful purposes or transmit harmful content.</li>
-              <li>Ensure your account credentials remain confidential.</li>
-            </ul>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              4. Limitation of Liability
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              We make every effort to ensure accuracy but are not liable for errors or penalties resulting from
-              incorrect data provided by you or delays on government portals.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              5. Intellectual Property
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              All content on this website (logos, text, graphics) is owned by TaxReturnsOnline and protected under applicable laws.
-              You may not reuse our content without prior written permission.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              6. Amendments
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              We reserve the right to update these Terms of Use at any time. Changes will be effective upon posting on this page.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              7. Contact
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              For questions about these terms, please contact us at{" "}
-              <a
-                href="mailto:taxreturnsonline.in@gmail.com"
-                className="text-green-600 font-medium hover:underline"
-              >
-                taxreturnsonline.in@gmail.com
-              </a>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Scroll To Top */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-green-600 text-white shadow-lg hover:bg-green-700 transition-all z-50"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp size={24} />
-        </button>
-      )}
-    </>
-  );
-};
+        ))}
+      </div>
+    </LegalPageLayout>
+  </>
+);
 
 export default TermsOfUse;

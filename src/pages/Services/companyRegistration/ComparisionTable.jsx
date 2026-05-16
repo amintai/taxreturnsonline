@@ -1,114 +1,39 @@
-const ComparisonTable = () => {
-  const tableData = {
-    headers: [
-      "Business Type",
-      "Private Limited Company",
-      "One Person Company",
-      "Limited Liability Partnership",
-      "Partnership Firm",
-      "Proprietorship Firm",
-    ],
-    rows: [
-      {
-        category: "Act",
-        data: [
-          "Companies Act, 2013",
-          "Companies Act, 2013",
-          "Limited Liability Partnership Act, 2008",
-          "Indian Partnership Act, 1932",
-          "No specified Act",
-        ],
-      },
-      {
-        category: "Registration Requirement",
-        data: ["Mandatory", "Mandatory", "Mandatory", "Optional", "No"],
-      },
-      {
-        category: "Number of members",
-        data: ["2 – 200", "Only 1", "2 – Unlimited", "2 – 50", "Only 1"],
-      },
-      {
-        category: "Number of Director/Partner",
-        data: ["2 – 15", "Only 1", "2 – Unlimited", "2 – Unlimited", "Only 1"],
-      },
-      {
-        category: "Separate Legal Entity",
-        data: ["Yes", "Yes", "Yes", "No", "No"],
-      },
-      {
-        category: "Liability Protection",
-        data: ["Limited", "Limited", "Limited", "Unlimited", "Unlimited"],
-      },
-      {
-        category: "Statutory Audit",
-        data: [
-          "Mandatory",
-          "Mandatory",
-          "Dependent",
-          "Not mandatory",
-          "Not mandatory",
-        ],
-      },
-    ],
-  };
+const headers = ["Feature", "Pvt. Ltd.", "OPC", "LLP", "Partnership", "Proprietorship"];
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-8 rounded-lg ">
-      <h1 className="mb-4 text-3xl font-bold text-center">Comparison</h1>
-      <div className="w-16 h-1 bg-green-500 mx-auto"></div>
-      <span className="absolute left-1/2 w-16 h-1 bg-iec-green mt-2"></span>
-      <div className="mt-4 relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div className="w-full overflow-x-auto">
-          <table className="w-full text-sm text-left">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr>
-                {tableData.headers.map((header, index) => (
-                  <th
-                    key={index}
-                    scope="col"
-                    className={`px-6 py-3 ${
-                      index === 0
-                        ? "bg-white"
-                        : index % 2 === 0
-                        ? "bg-gray-100"
-                        : "bg-gray-200"
-                    }`}
-                  >
-                    {header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {tableData.rows.map((row, rowIndex) => (
-                <tr
-                  key={rowIndex}
-                  className="bg-white border-b hover:bg-gray-50"
-                >
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                  >
-                    {row.category}
-                  </th>
-                  {row.data.map((cell, cellIndex) => (
-                    <td
-                      key={cellIndex}
-                      className={`px-6 py-4 ${
-                        cellIndex % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
-                      }`}
-                    >
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
-};
+const rows = [
+  { category: "Governing Act", data: ["Companies Act, 2013", "Companies Act, 2013", "LLP Act, 2008", "Partnership Act, 1932", "No specific Act"] },
+  { category: "Registration", data: ["Mandatory", "Mandatory", "Mandatory", "Optional", "Not required"] },
+  { category: "Min. Members", data: ["2", "1", "2", "2", "1"] },
+  { category: "Min. Directors", data: ["2", "1", "2 (Designated)", "2+", "1"] },
+  { category: "Separate Legal Entity", data: ["Yes", "Yes", "Yes", "No", "No"] },
+  { category: "Liability", data: ["Limited", "Limited", "Limited", "Unlimited", "Unlimited"] },
+  { category: "Statutory Audit", data: ["Mandatory", "Mandatory", "Conditional", "Not required", "Not required"] },
+];
+
+const ComparisonTable = () => (
+  <div className="overflow-x-auto rounded-2xl border border-gray-100 shadow-sm">
+    <table className="w-full text-sm text-left">
+      <thead>
+        <tr className="bg-[#005C9D] text-white">
+          {headers.map((h, i) => (
+            <th key={i} className={`px-5 py-3 font-semibold whitespace-nowrap ${i === 0 ? "rounded-tl-2xl" : ""} ${i === headers.length - 1 ? "rounded-tr-2xl" : ""}`}>
+              {h}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(({ category, data }, ri) => (
+          <tr key={ri} className={ri % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+            <td className="px-5 py-3 font-medium text-gray-900 whitespace-nowrap">{category}</td>
+            {data.map((cell, ci) => (
+              <td key={ci} className="px-5 py-3 text-gray-600">{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
 
 export default ComparisonTable;

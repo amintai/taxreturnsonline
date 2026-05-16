@@ -1,107 +1,78 @@
 import { Link } from "react-router-dom";
+import { Building2, Users, User, Leaf, Globe, FileText } from "lucide-react";
 
-const TypesOfCompanyReg = () => {
-  const companyTypes = [
-    {
-      id: 1,
-      title: "Private Limited Company (Pvt. Ltd)",
-      image: "/lovable-uploads/c4c3a231-8f6c-4dd1-8115-aa8f64b82969.png",
-      description:
-        "Private company registration refers to the process of registering a company Under Sec 25, subsection 1(a) of the company registration Act 1956. In this process, there must be at least two members who will be registering the company, they may be the owner or the representative on behalf of the company.",
-      icon: "🏢",
-      link: "/our-services/company-registration/private-limited-company",
-    },
-    {
-      id: 2,
-      title: "Limited Liability Partnership (LLP)",
-      description:
-        "Limited Liability Partnership registration refers to the registration of a partnership firm under the Limited Liability Partnership Act 2008. The major point in LLP is every partner have limited liability but not several.",
-      icon: "🤝",
-      link: "/our-services/company-registration/limited-liability-partnership",
-    },
-    {
-      id: 3,
-      title: "One Person Company (OPC)",
-      description:
-        "In this the ownership of the company is only limited to one person. One person Company registration also comes under the Companies Act 1956.",
-      icon: "👤",
-    },
-    {
-      id: 4,
-      title: "Section 8 - NGO Registration",
-      description:
-        "Section 8 companies are registered for promoting commerce, art, science, sports, education, research, social welfare, religion, charity, protection of environment or any such other object.",
-      icon: "🌱",
-    },
-    {
-      id: 5,
-      title: "Public Limited Company",
-      description:
-        "A public limited company is a company that offers shares to the general public and has limited liability. Its stock can be acquired by anyone and shares are traded freely on the open market.",
-      icon: "🏭",
-    },
-    {
-      id: 6,
-      title: "Business Registration License",
-      description:
-        "Register and get your license with Tax Returns Online to establish your business legally and operate within the framework of the law.",
-      icon: "📝",
-    },
-  ];
+const companyTypes = [
+  {
+    icon: Building2,
+    title: "Private Limited Company",
+    short: "Pvt. Ltd.",
+    description: "Most popular structure for startups and growing businesses. Requires minimum 2 directors and 2 shareholders. Offers limited liability and easy fundraising.",
+    link: "/our-services/company-registration/private-limited-company",
+    color: "#005C9D",
+  },
+  {
+    icon: Users,
+    title: "Limited Liability Partnership",
+    short: "LLP",
+    description: "Combines the flexibility of a partnership with limited liability protection. Ideal for professionals and service firms. Minimum 2 designated partners required.",
+    link: "/our-services/company-registration/limited-liability-partnership",
+    color: "#02BC6B",
+  },
+  {
+    icon: User,
+    title: "One Person Company",
+    short: "OPC",
+    description: "Designed for solo entrepreneurs who want the benefits of a company structure. Single director and shareholder. Full limited liability protection.",
+    color: "#005C9D",
+  },
+  {
+    icon: Leaf,
+    title: "Section 8 Company",
+    short: "NGO",
+    description: "For non-profit organisations promoting education, charity, arts, science, or social welfare. Eligible for tax exemptions and government grants.",
+    color: "#02BC6B",
+  },
+  {
+    icon: Globe,
+    title: "Public Limited Company",
+    short: "Public Ltd.",
+    description: "Suitable for large businesses planning to raise capital from the public. Shares can be freely traded. Requires minimum 3 directors and 7 shareholders.",
+    color: "#005C9D",
+  },
+  {
+    icon: FileText,
+    title: "Business Registration / Licence",
+    short: "Proprietorship",
+    description: "Simplest form of business  no separate legal entity. Ideal for small traders and freelancers. Quick to set up with minimal compliance requirements.",
+    color: "#02BC6B",
+  },
+];
 
-  return (
-    <section className="py-12 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Types of Company Registrations
-          </h2>
-          <div className="w-24 h-1 bg-green-500 mx-auto mt-4"></div>
+const TypesOfCompanyReg = () => (
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    {companyTypes.map(({ icon: Icon, title, short, description, link, color }) => (
+      <div key={title} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col hover:shadow-md transition-shadow group">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${color}15` }}>
+            <Icon size={20} style={{ color }} />
+          </div>
+          <div>
+            <h3 className="font-semibold text-gray-900 text-sm leading-tight">{title}</h3>
+            <span className="text-xs text-gray-400">{short}</span>
+          </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {companyTypes.map((company) => (
-            <div
-              key={company.id}
-              className="border border-gray-200 rounded-lg overflow-hidden shadow-md"
-            >
-              {/* Card Header/Image Area */}
-              <div className="h-48 bg-gradient-to-r from-blue-800 to-blue-600 relative flex items-center justify-center">
-                <h3 className="text-white text-center text-xl font-bold px-4">
-                  {company.title.split(" ").slice(0, 3).join(" ").toUpperCase()}
-                  <br />
-                  {company.title.includes("Registration")
-                    ? "REGISTRATION"
-                    : "COMPANY REGISTRATION"}
-                </h3>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-2">{company.icon}</span>
-                  <h4 className="text-lg font-semibold">{company.title}</h4>
-                </div>
-                <p className="text-gray-600 text-sm mb-6">
-                  {company.description}
-                </p>
-                {company.link && (
-                  <div className="text-center">
-                    <Link
-                      to={company.link}
-                      className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors"
-                    >
-                      VIEW DETAILS
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        <p className="text-gray-500 text-sm leading-relaxed flex-1">{description}</p>
+        {link && (
+          <Link
+            to={link}
+            className="mt-4 text-sm font-medium text-[#005C9D] hover:text-blue-700 flex items-center gap-1 w-fit"
+          >
+            View details →
+          </Link>
+        )}
       </div>
-    </section>
-  );
-};
+    ))}
+  </div>
+);
 
 export default TypesOfCompanyReg;

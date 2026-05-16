@@ -33,12 +33,22 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>File ITR Online in India - TaxReturnsOnline</title>
-        <meta
-          name="description"
-          content="Easily file your income tax returns with expert CAs. Fast, secure, and affordable ITR services."
-        />
+        <title>File ITR Online in India — CA-Assisted Tax Filing | TaxReturnsOnline</title>
+        <meta name="description" content="File your Income Tax Return online with expert Chartered Accountants. GST registration, company incorporation, bookkeeping & compliance — fast, secure, starting at ₹999." />
+        <meta name="keywords" content="ITR filing online India, income tax return filing, CA assisted ITR, GST registration, company registration India, tax planning, bookkeeping service" />
         <link rel="canonical" href="https://www.taxreturnsonline.in/" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "TaxReturnsOnline",
+          "url": "https://www.taxreturnsonline.in",
+          "telephone": "+91-9512397377",
+          "email": "support@taxreturnsonline.in",
+          "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" },
+          "description": "CA-assisted online tax filing, GST, company registration and compliance services across India.",
+          "priceRange": "₹999 - ₹34,999",
+          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "500", "bestRating": "5" }
+        })}</script>
       </Helmet>
 
       <section className="bg-gradient-to-b from-blue-50 to-white">

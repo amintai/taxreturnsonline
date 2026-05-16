@@ -1,131 +1,88 @@
-import { ArrowUp, AlertCircle } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { AlertCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet';
+import LegalPageLayout from '../components/LegalPageLayout';
 
-const Disclaimer = () => {
-  const [showScrollTop, setShowScrollTop] = useState(false);
+const sections = [
+  {
+    title: '1. General Information Only',
+    content: 'The information provided on TaxReturnsOnline is for general guidance purposes only. While we strive to keep all content accurate and up to date, we make no representations or warranties of any kind  express or implied  about the completeness, accuracy, reliability, or suitability of the information on this website for any particular purpose.',
+  },
+  {
+    title: '2. Not a Substitute for Professional Advice',
+    content: 'Nothing on this website constitutes professional legal, tax, or financial advice. Every individual and business situation is unique. You should always consult with a qualified Chartered Accountant, tax advisor, or legal professional before making any decision or taking any action that may affect your finances, tax obligations, or compliance status.',
+  },
+  {
+    title: '3. Accuracy of Tax Information',
+    content: 'Tax laws, rates, and regulations in India change frequently. While our team works to keep information current, there may be a delay between regulatory changes and updates to our website. We recommend verifying all tax-related information with the Income Tax Department, GST Council, or MCA portals directly, or consulting our CA team for the latest guidance.',
+  },
+  {
+    title: '4. Limitation of Liability',
+    content: 'TaxReturnsOnline and its team shall not be liable for any direct, indirect, incidental, consequential, or punitive loss or damage arising from:',
+    bullets: [
+      'Reliance on information published on this website.',
+      'Errors or omissions in content, even if we have been advised of the possibility of such damage.',
+      'Loss of data, profits, or business opportunities arising from use of our services.',
+      'Delays or failures caused by government portal outages or technical issues beyond our control.',
+    ],
+  },
+  {
+    title: '5. External Links',
+    content: 'This website may contain links to third-party websites such as the Income Tax portal, GST portal, or MCA portal. These links are provided for convenience only. TaxReturnsOnline has no control over the content, availability, or accuracy of those sites and does not endorse or accept responsibility for them.',
+  },
+  {
+    title: '6. Service Availability',
+    content: 'We reserve the right to modify, suspend, or discontinue any part of our services at any time without prior notice. We are not liable for any modification, suspension, or discontinuance of services. We will make reasonable efforts to notify clients of significant changes.',
+  },
+  {
+    title: '7. Client Responsibility',
+    content: 'The accuracy of all filings and submissions depends entirely on the information and documents provided by you. TaxReturnsOnline is not responsible for penalties, notices, or legal consequences arising from incorrect, incomplete, or fraudulent information provided by clients.',
+  },
+];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const Disclaimer = () => (
+  <>
+    <Helmet>
+      <title>Disclaimer  TaxReturnsOnline</title>
+      <meta name="description" content="Read the Disclaimer for TaxReturnsOnline to understand the limitations of our services and information provided on this website." />
+      <link rel="canonical" href="https://www.taxreturnsonline.in/disclaimer" />
+    </Helmet>
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    <LegalPageLayout
+      icon={AlertCircle}
+      iconBg="bg-amber-100"
+      iconColor="text-amber-600"
+      title="Disclaimer"
+      subtitle="Please read this disclaimer carefully before using our website and services."
+      lastUpdated="May 2025"
+      activePath="/disclaimer"
+    >
+      <div className="space-y-8">
+        <p className="text-gray-500 text-sm leading-relaxed border-l-4 border-amber-400 pl-4">
+          This disclaimer governs your use of TaxReturnsOnline. By using our website and services, you accept this disclaimer in full. If you disagree with any part of this disclaimer, do not use our website.
+        </p>
 
-  return (
-    <>
-      <Helmet>
-        <title>Disclaimer - TaxReturnsOnline</title>
-        <meta
-          name="description"
-          content="Read the Disclaimer for TaxReturnsOnline to understand the limitations of our services and information provided on this website."
-        />
-        <link
-          rel="canonical"
-          href="https://www.taxreturnsonline.in/disclaimer"
-        />
-      </Helmet>
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-50 to-white py-16">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse"></div>
-
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex justify-center mb-6">
-            <div className="p-4 bg-yellow-100 rounded-full shadow-md">
-              <AlertCircle className="h-10 w-10 text-yellow-700" />
-            </div>
+        {sections.map(({ title, content, bullets }) => (
+          <div key={title}>
+            <h2 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-5 bg-amber-400 rounded-full inline-block" />
+              {title}
+            </h2>
+            {content && <p className="text-gray-600 leading-relaxed text-sm mb-3">{content}</p>}
+            {bullets && (
+              <ul className="space-y-2">
+                {bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2 text-sm text-gray-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
-            Disclaimer
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Please read this disclaimer carefully before using our website and services.
-          </p>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="bg-gray-50 py-12">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 space-y-8">
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              1. General Information
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              The information provided on <strong>TaxReturnsOnline</strong> is for general guidance only. 
-              While we strive to keep all information up to date and accurate, we make no representations or warranties of any kind, 
-              express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              2. Not Professional Advice
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Nothing on this website constitutes professional legal, tax, or financial advice. 
-              You should consult with a qualified Chartered Accountant or relevant professional before making any decision or taking action that might affect your finances or compliance status.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              3. Limitation of Liability
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              In no event will <strong>TaxReturnsOnline</strong> or its team be liable for any loss or damage including, 
-              without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever 
-              arising from loss of data or profits, arising out of or in connection with the use of this website or our services.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              4. External Links
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Through this website, you may be able to link to other websites that are not under the control of <strong>TaxReturnsOnline</strong>. 
-              We have no control over the nature, content, and availability of those sites. 
-              The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              5. Service Changes
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              We reserve the right to modify or discontinue, temporarily or permanently, any part of our services without prior notice. 
-              We are not liable for any modification, suspension, or discontinuance of our services.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
-              6. Contact Us
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              If you have any questions about this Disclaimer, please contact us at{" "}
-              <a
-                href="mailto:taxreturnsonline.in@gmail.com"
-                className="text-green-600 font-medium hover:underline"
-              >
-                taxreturnsonline.in@gmail.com
-              </a>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Scroll To Top */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-green-600 text-white shadow-lg hover:bg-green-700 transition-all z-50"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp size={24} />
-        </button>
-      )}
-    </>
-  );
-};
+        ))}
+      </div>
+    </LegalPageLayout>
+  </>
+);
 
 export default Disclaimer;

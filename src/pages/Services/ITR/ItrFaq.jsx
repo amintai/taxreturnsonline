@@ -1,44 +1,75 @@
-import { Accordion, AccordionItem } from "@szhsin/react-accordion";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { Helmet } from "react-helmet";
+
+const faqs = [
+  {
+    q: "Who needs to file an ITR?",
+    a: "Any individual whose gross income exceeds the basic exemption limit (₹2.5L / ₹3L for seniors), or who wants to claim a refund, has foreign assets, or has carried forward losses must file an ITR.",
+  },
+  {
+    q: "What documents are required for ITR filing?",
+    a: "PAN card, Aadhaar, Form 16 or salary slips, bank statements, investment proofs (80C, 80D), and TDS certificates (Form 26AS) are typically needed.",
+  },
+  {
+    q: "Can I file ITR without Form 16?",
+    a: "Yes. You can file using your salary details, bank statement, and Form 26AS from the IT portal. Our CAs handle this regularly.",
+  },
+  {
+    q: "What is the last date to file ITR?",
+    a: "For most individuals, the due date is July 31 of the assessment year. Late filing attracts a penalty of up to ₹5,000 under Section 234F.",
+  },
+  {
+    q: "How long does it take to file my return?",
+    a: "Once you share all documents, our CA prepares and files your return within 24–48 hours.",
+  },
+  {
+    q: "Is it mandatory to file ITR for zero income?",
+    a: "Not mandatory, but filing a nil return is useful for visa applications, loan processing, and building a financial track record.",
+  },
+];
 
 const ItrFaq = () => {
+  const [open, setOpen] = useState(null);
+
   return (
-    <div className="max-w-md mx-auto">
-      <div className="space-y-2">
-        <Accordion className="mt-8">
-
-          <div className="mb-2 bg-primary text-white p-3 rounded-t-md">
-            <AccordionItem header="Who needs to file an ITR?" className="font-medium">
-              Any individual whose income exceeds the basic exemption limit, or who wants to claim a refund, or has foreign assets, must file an ITR.
-            </AccordionItem>
-          </div>
-
-          <div className="mb-2 bg-primary text-white p-3 rounded-t-md">
-            <AccordionItem header="What documents are required for ITR filing?" className="font-medium">
-              PAN, Aadhaar, salary slips, Form 16, investment proofs, and bank statements are typically needed.
-            </AccordionItem>
-          </div>
-
-          <div className="mb-2 bg-primary text-white p-3 rounded-t-md">
-            <AccordionItem header="Can I file ITR without Form 16?" className="font-medium">
-              Yes, you can still file ITR using your salary details, bank statement, and other relevant documents.
-            </AccordionItem>
-          </div>
-
-          <div className="mb-2 bg-primary text-white p-3 rounded-t-md">
-            <AccordionItem header="What are the benefits of filing ITR?" className="font-medium">
-              Legal compliance, smoother visa approvals, easy loan processing, and eligibility for refunds.
-            </AccordionItem>
-          </div>
-
-          <div className="mb-2 bg-primary text-white p-3 rounded-t-md">
-            <AccordionItem header="Is it mandatory to file ITR for zero income?" className="font-medium">
-              No, it's not mandatory. But it may be useful for future loan or visa applications.
-            </AccordionItem>
-          </div>
-
-        </Accordion>
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(({ q, a }) => ({
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": { "@type": "Answer", "text": a }
+          }))
+        })}</script>
+      </Helmet>
+      <div className="space-y-3">
+      {faqs.map(({ q, a }, i) => (
+        <div
+          key={i}
+          className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+        >
+          <button
+            className="w-full flex items-center justify-between px-5 py-4 text-left gap-4"
+            onClick={() => setOpen(open === i ? null : i)}
+          >
+            <span className="font-medium text-gray-900 text-sm">{q}</span>
+            <ChevronDown
+              size={18}
+              className={`text-gray-400 shrink-0 transition-transform duration-200 ${open === i ? "rotate-180" : ""}`}
+            />
+          </button>
+          {open === i && (
+            <div className="px-5 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-50">
+              {a}
+            </div>
+          )}
+        </div>
+      ))}
       </div>
-    </div>
+    </>
   );
 };
 

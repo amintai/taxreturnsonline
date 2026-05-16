@@ -1,76 +1,71 @@
-import { Globe, Award, ShieldCheck, DollarSign, List } from "lucide-react";
+import { Globe, Award, ShieldCheck, DollarSign, TrendingUp } from 'lucide-react';
 
-const IecBenefits = () => {
-  const benefits = [
-    {
-      icon: <Globe className="w-10 h-10 text-iec-blue" />,
-      title: "International Market Reach",
-      description: "Import Export Code helps you in order to take your business to the international market. Not only that, it will increase your revenue as well as growth."
-    },
-    {
-      icon: <Award className="w-10 h-10 text-iec-blue" />,
-      title: "Niryat Bandhu Scheme",
-      description: "The goal of this project of DGFT (Main Objective is to help Entrepreneurs, Exporters, Importers, and students) Govt of India Support them to expand and provide certification in Export & Import Management."
-    },
-    {
-      icon: <ShieldCheck className="w-10 h-10 text-iec-blue" />,
-      title: "Reduces the Risk of Illegal Transportation",
-      description: "IEC helps you to get rid of any illegal transportation or fraudulent imports and exports. IEC registration is a document registration which helps the officials to control and manage the transaction in a better manner which is considered as part of customs business."
-    },
-    {
-      icon: <DollarSign className="w-10 h-10 text-iec-blue" />,
-      title: "Easy Avail Benefit of Govt. Schemes",
-      description: "Import-Export Code registration is of utmost importance as it lets suppliers operating in the international market to avail benefits or subsidies declared by the Customs, Export Promotion Council and other several authorities."
-    },
-    {
-      icon: <List className="w-10 h-10 text-iec-blue" />,
-      title: "Other Benefits",
-      description: "Companies that register for the Import Export Code could make the most of several other benefits offered by customs, the Export Promotion Council, and the Director General of Foreign Trade."
-    }
-  ];
+const benefits = [
+  {
+    icon: Globe,
+    title: 'International Market Access',
+    description: 'IEC opens the door to global trade  import goods from anywhere or export your products worldwide, legally and seamlessly.',
+    color: '#005C9D',
+  },
+  {
+    icon: Award,
+    title: 'Niryat Bandhu Scheme',
+    description: "Registered IEC holders can benefit from DGFT's Niryat Bandhu scheme  government support, training, and certification for exporters and importers.",
+    color: '#02BC6B',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Prevents Illegal Trade',
+    description: 'IEC helps customs authorities track and control cross-border transactions, protecting your business from fraudulent or illegal trade activities.',
+    color: '#005C9D',
+  },
+  {
+    icon: DollarSign,
+    title: 'Government Subsidies & Benefits',
+    description: 'IEC-registered businesses can avail export incentives, duty drawbacks, and subsidies from Customs, Export Promotion Councils, and DGFT.',
+    color: '#02BC6B',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Lifetime Validity',
+    description: 'Unlike most registrations, IEC has lifetime validity with no annual renewal required  register once and trade forever.',
+    color: '#005C9D',
+  },
+];
 
-  return (
-<div className="my-12 bg-gray-50 py-12">
-  <div className="max-w-6xl mx-auto px-4">
-    <div className="flex flex-col md:flex-row gap-10">
-      
-      {/* Left Section */}
-      <div className="md:w-1/3">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 leading-snug">
-          Advantages of IEC for Import Export Businesses
-        </h2>
-        <img 
-          src="/images/services/logistic-iec.jpeg" 
-          alt="Import Export Logistics" 
-          className="rounded-lg shadow-md mt-4"
+const IecBenefits = () => (
+  <div>
+    <div className="text-center mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Benefits of IEC Registration</h2>
+      <p className="text-gray-500 mt-2 text-sm">Why every import/export business needs an IEC</p>
+      <div className="w-12 h-1 bg-green-500 mx-auto mt-3" />
+    </div>
+
+    <div className="flex flex-col lg:flex-row gap-8 items-start max-w-5xl mx-auto">
+      <div className="lg:w-56 shrink-0">
+        <img
+          src="/images/services/logistic-iec.jpeg"
+          alt="Import Export Logistics"
+          className="w-full rounded-2xl object-cover shadow-md"
+          style={{ maxHeight: '320px' }}
+          loading="lazy"
         />
       </div>
-
-      {/* Right Section */}
-      <div className="md:w-2/3 space-y-5">
-        {benefits.map((benefit, index) => (
-          <div 
-            key={index} 
-            className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-          >
-            {/* Icon */}
-            <div className="w-10 h-10 flex items-center justify-center bg-iec-blue/10 text-iec-blue rounded-full">
-              {benefit.icon}
+      <div className="flex-1 space-y-4">
+        {benefits.map(({ icon: Icon, title, description, color }) => (
+          <div key={title} className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 flex gap-4 hover:shadow-md transition-shadow">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${color}15` }}>
+              <Icon size={20} style={{ color }} />
             </div>
-            
-            {/* Content */}
             <div>
-              <h3 className="text-md font-semibold text-gray-800">{benefit.title}</h3>
-              <p className="text-sm text-gray-600 mt-1">{benefit.description}</p>
+              <h4 className="font-semibold text-gray-900 text-sm mb-1">{title}</h4>
+              <p className="text-gray-500 text-xs leading-relaxed">{description}</p>
             </div>
           </div>
         ))}
       </div>
     </div>
   </div>
-</div>
-
-  );
-};
+);
 
 export default IecBenefits;

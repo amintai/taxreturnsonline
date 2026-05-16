@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 38" fill="none" aria-label="TRO" role="img">
+  <!-- T  brand blue -->
+  <text x="0" y="32"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="32" font-weight="900"
+    fill="#005C9D">T</text>
+
+  <!-- R  brand green -->
+  <text x="22" y="32"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="32" font-weight="900"
+    fill="#02BC6B">R</text>
+
+  <!-- O  dark blue -->
+  <text x="45" y="32"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="32" font-weight="900"
+    fill="#035B81">O</text>
+</svg>
