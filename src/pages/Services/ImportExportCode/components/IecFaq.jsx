@@ -35,29 +35,44 @@ const IecFaq = () => {
   return (
     <>
       <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": faqs.map(({ q, a }) => ({
-            "@type": "Question",
-            "name": q,
-            "acceptedAnswer": { "@type": "Answer", "text": a }
-          }))
-        })}</script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(({ q, a }) => ({
+              '@type': 'Question',
+              name: q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: a,
+              },
+            })),
+          })}
+        </script>
       </Helmet>
+
       <div className="space-y-3">
         {faqs.map(({ q, a }, i) => (
-          <div key={i} className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+          <div
+            key={i}
+            className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+          >
             <button
               className="w-full flex items-center justify-between px-5 py-4 text-left gap-4"
               onClick={() => setOpen(open === i ? null : i)}
             >
-              <span className="font-medium text-gray-900 text-sm">{q}</span>
+              <span className="font-medium text-gray-900 text-sm">
+                {q}
+              </span>
+
               <ChevronDown
                 size={18}
-                className={`text-gray-400 shrink-0 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`}
+                className={`text-gray-400 shrink-0 transition-transform duration-200 ${
+                  open === i ? 'rotate-180' : ''
+                }`}
               />
             </button>
+
             {open === i && (
               <div className="px-5 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-50">
                 {a}
@@ -67,36 +82,6 @@ const IecFaq = () => {
         ))}
       </div>
     </>
-  );
-};
-
-export default IecFaq;
-
-const IecFaq = () => {
-  const [open, setOpen] = useState(null);
-
-  return (
-    <div className="space-y-3">
-      {faqs.map(({ q, a }, i) => (
-        <div key={i} className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-          <button
-            className="w-full flex items-center justify-between px-5 py-4 text-left gap-4"
-            onClick={() => setOpen(open === i ? null : i)}
-          >
-            <span className="font-medium text-gray-900 text-sm">{q}</span>
-            <ChevronDown
-              size={18}
-              className={`text-gray-400 shrink-0 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`}
-            />
-          </button>
-          {open === i && (
-            <div className="px-5 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-50">
-              {a}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
   );
 };
 
