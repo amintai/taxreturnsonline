@@ -98,7 +98,7 @@ const ProjectReport = () => {
               </div>
               <div className="lg:w-[420px] shrink-0 hidden lg:block">
                 <div className="relative rounded-t-2xl overflow-hidden shadow-2xl" style={{ height: '340px' }}>
-                  <img src="/images/services/economic-growth.jpeg" alt="Project Report" className="w-full h-full object-cover object-top" loading="eager" />
+                  <img src="/images/services/economic-growth.jpeg" alt="Project Report" className="w-full h-full object-cover object-center" loading="eager" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 divide-x divide-white/20 bg-black/30 backdrop-blur-sm">
                     {[{ value: '500+', label: 'Reports' }, { value: '₹6,999', label: 'One-time' }, { value: '5 Days', label: 'Delivery' }, { value: '4.9★', label: 'Rating' }].map(({ value, label }) => (
@@ -178,7 +178,7 @@ const ProjectReport = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
               {steps.map(({ num, title }) => (
                 <div key={num} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 text-center relative">
-                  <div className="text-4xl font-black text-gray-100 mb-3 select-none">{num}</div>
+                  <div className="text-4xl font-black text-gray-500 mb-3 select-none">{num}</div>
                   <p className="text-sm font-medium text-gray-800">{title}</p>
                 </div>
               ))}

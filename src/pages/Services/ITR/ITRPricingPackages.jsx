@@ -10,8 +10,8 @@ import {
 const pricingData = [
   {
     tier: "Salaried Individual",
-    price: "₹999",
-    originalPrice: "₹1249",
+    price: 999,
+    originalPrice: 1249,
     features: [
       "Income from Salary",
       "Form 16 based Filing",
@@ -25,7 +25,8 @@ const pricingData = [
   },
   {
     tier: "Capital Gain ITR",
-    price: "₹2499",
+    price: 2499,
+    originalPrice: 3124,
     features: [
       "Includes Stocks, Mutual Funds, Property Sales",
       "Capital Gain Computation",
@@ -39,7 +40,8 @@ const pricingData = [
   },
   {
     tier: "Business ITR",
-    price: "₹2999",
+    price: 2999,
+    originalPrice: 3749,
     features: [
       "Applicable for Freelancers, Proprietors, and Traders",
       "Books of Accounts Assistance",
@@ -53,17 +55,15 @@ const pricingData = [
   },
 ];
 
-const getOriginalPrice = (discountedPrice) => {
-  const numeric = Number(discountedPrice.replace(/[^\d]/g, ""));
-  return `₹${Math.round(numeric * 1.2)}`;
-};
+const getDiscountPercent = (price, originalPrice) =>
+  Math.round(((originalPrice - price) / originalPrice) * 100);
 
 const FeatureItem = ({ text }) => {
-  const getIcon = (text) => {
-    if (text.includes("Call")) return <PhoneCall className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("CA") || text.includes("Expert")) return <User className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("Computation") || text.includes("Filing")) return <CalendarCheck className="w-4 h-4 text-green-500 mr-2" />;
-    if (text.includes("Support")) return <Mail className="w-4 h-4 text-green-500 mr-2" />;
+  const getIcon = (t) => {
+    if (t.includes("Call")) return <PhoneCall className="w-4 h-4 text-green-500 mr-2" />;
+    if (t.includes("CA") || t.includes("Expert")) return <User className="w-4 h-4 text-green-500 mr-2" />;
+    if (t.includes("Computation") || t.includes("Filing")) return <CalendarCheck className="w-4 h-4 text-green-500 mr-2" />;
+    if (t.includes("Support")) return <Mail className="w-4 h-4 text-green-500 mr-2" />;
     return <Check className="w-4 h-4 text-green-500 mr-2" />;
   };
 
@@ -81,14 +81,21 @@ const ITRFilingPackages = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-2">ITR Filing Packages</h2>
-          <h3 className="text-xl mb-4">Affordable & Expert-Led Tax Filing</h3>
+          <h3 className="text-xl mb-4">Affordable &amp; Expert-Led Tax Filing</h3>
           <div className="w-24 h-1 bg-green-500 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingData.map((plan, index) => {
-            const message = `Hello, I’m interested in the '${plan.tier}' ITR Filing plan priced at ${plan.price}. Please guide me with the next steps.`;
-            const whatsappURL = `https://wa.me/919512397377?text=${encodeURIComponent(message)}`;
+            const discountPercent = getDiscountPercent(plan.price, plan.originalPrice);
+            const message =
+              "Hello, I'm interested in the '" +
+              plan.tier +
+              "' ITR Filing plan priced at \u20B9" +
+              plan.price +
+              ". Please guide me with the next steps.";
+            const whatsappURL =
+              "https://wa.me/919512397377?text=" + encodeURIComponent(message);
 
             return (
               <a
@@ -96,24 +103,25 @@ const ITRFilingPackages = () => {
                 href={whatsappURL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex flex-col justify-between overflow-hidden rounded-lg cursor-pointer transition-transform duration-200 hover:scale-[1.02] ${
-                  plan.highlight
+                className={
+                  "flex flex-col justify-between overflow-hidden rounded-lg cursor-pointer transition-transform duration-200 hover:scale-[1.02] " +
+                  (plan.highlight
                     ? "bg-white text-gray-800"
-                    : "bg-gray-100/95 text-gray-800"
-                }`}
+                    : "bg-gray-100/95 text-gray-800")
+                }
               >
                 {/* Header with Discount */}
                 <div className="relative text-center py-6 px-4 bg-gray-100">
                   <h3 className="text-xl font-semibold mb-2">{plan.tier}</h3>
                   <span className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    {plan.originalPrice ? "17% OFF" : "20% OFF"}
+                    {discountPercent}% OFF
                   </span>
                   <div className="flex flex-col items-center">
                     <span className="text-base line-through text-gray-500">
-                      {plan.originalPrice ?? getOriginalPrice(plan.price)}
+                      &#8377;{plan.originalPrice}
                     </span>
                     <span className="text-3xl font-bold text-green-600">
-                      {plan.price}
+                      &#8377;{plan.price}
                     </span>
                   </div>
                 </div>

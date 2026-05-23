@@ -110,7 +110,7 @@ const AnnualComplienceFilling = () => {
               </div>
               <div className="lg:w-[420px] shrink-0 hidden lg:block">
                 <div className="relative rounded-t-2xl overflow-hidden shadow-2xl" style={{ height: '340px' }}>
-                  <img src="/images/services/annual-compliance.jpg" alt="Annual Compliance" className="w-full h-full object-cover object-top" loading="eager" />
+                  <img src="/images/services/annual-compliance.jpg" alt="Annual Compliance" className="w-full h-full object-cover object-center" loading="eager" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 divide-x divide-white/20 bg-black/30 backdrop-blur-sm">
                     {[{ value: '500+', label: 'Companies' }, { value: '₹7,999', label: 'Starting at' }, { value: '4 Types', label: 'Covered' }, { value: '4.9★', label: 'Rating' }].map(({ value, label }) => (

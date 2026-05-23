@@ -116,7 +116,7 @@ const CompanyRegistration = () => {
                   <img
                     src="/images/services/comapny-registration.jpeg"
                     alt="Company Registration"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                     loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

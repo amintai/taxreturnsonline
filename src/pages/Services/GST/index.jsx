@@ -7,6 +7,7 @@ import Benefits from "./Benfits";
 import PricingPackages from "./PricingPacakges";
 import GstDocuments from "./GstDocuments";
 import GstSideForm from "./GstSideForm";
+import GstFaq from "./GstFaq";
 
 const WHATSAPP = "919512397377";
 
@@ -121,7 +122,7 @@ const GstRegistration = () => {
                   <img
                     src="/images/services/gst-service-2.jpeg"
                     alt="GST Registration"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                     loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
