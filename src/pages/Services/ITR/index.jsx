@@ -68,7 +68,7 @@ const ItrReturn = () => {
                 {/* Eyebrow */}
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-xs font-medium mb-5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  Income Tax Return Filing  AY 2026–26
+                  Income Tax Return Filing  AY {new Date().getFullYear() } -{ new Date().getFullYear() + 1 }
                 </div>
 
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5">
